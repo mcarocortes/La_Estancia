@@ -1,0 +1,244 @@
+window.MENU_DATA = {
+  "restaurant": {
+    "name": "Asador La Estancia",
+    "tagline": "Parrilla argentina en Alicante",
+    "phone": "+34 966 35 03 21",
+    "phoneHref": "tel:+34966350321",
+    "whatsapp": "https://wa.me/34966350321",
+    "address": "Virgen del Socorro 79, Alicante",
+    "mapsQuery": "Virgen del Socorro 79, Alicante",
+    "hours": [
+      { "days": "Lunes a jueves", "time": "19:00 – 00:00" },
+      { "days": "Viernes a domingo", "time": "13:30 – 16:00 / 19:00 – 00:00" }
+    ]
+  },
+  "categories": [
+    {
+      "id": "entrantes",
+      "es": "Entrantes",
+      "en": "Starters",
+      "items": [
+        { "es": "Mix de queso curado de oveja", "en": "Cured sheep cheese mix", "price": "15.50" },
+        { "es": "Chorizo criollo", "en": "Argentinian beef sausage", "price": "3.70" },
+        { "es": "Empanadas criollas de carne o pollo", "en": "Argentinian pie / meat or chicken", "price": "4.50" },
+        { "es": "Mollejas de ternera al limón", "en": "Grill beef gizzard", "price": "26.00" },
+        { "es": "Sepia", "en": "Cuttlefish", "price": "17.00" },
+        { "es": "Gambas al ajillo", "en": "Garlic prawns", "price": "17.00" },
+        { "es": "Pimientos de Padrón", "en": "Padrón peppers", "price": "11.00" },
+        { "es": "Hummus con chimichurri", "en": "Hummus with chimichurri", "price": "13.50" },
+        { "es": "Parrillada de verduras", "en": "Grilled vegetables", "price": "20.00" },
+        { "es": "Mini verduras a la parrilla", "en": "Mini grilled vegetables", "price": "14.00" },
+        { "es": "Champiñones al ajillo", "en": "Garlic mushrooms", "price": "14.00" },
+        { "es": "Queso provoleta", "en": "Provolone cheese", "price": "13.00" },
+        { "es": "Calamares a la andaluza", "en": "Andalusian-style squid", "price": "20.00" },
+        { "es": "Pulpo braseado con puré de patatas", "en": "Grilled octopus with mashed potatoes", "price": "26.00" }
+      ]
+    },
+    {
+      "id": "ensaladas",
+      "es": "Ensaladas",
+      "en": "Salads",
+      "items": [
+        { "es": "Mixta", "en": "Mixed", "note": "Lechuga, tomate, cebolla", "price": "12.00" },
+        { "es": "De ventresca", "en": "Tuna belly", "note": "Tomate raff y ventresca de atún", "price": "17.00" },
+        { "es": "Caprese", "en": "Caprese", "note": "Tomate, mozzarella y albahaca", "price": "16.00" },
+        { "es": "Ensalada mango & cabra deluxe", "en": "Mango & goat cheese deluxe salad", "note": "Mango, queso de cabra, cherry y aliño de mostaza, miel y eneldo", "price": "17.00" },
+        { "es": "Ensalada sorpresa La Estancia", "en": "Surprise salad La Estancia", "price": "20.00" }
+      ]
+    },
+    {
+      "id": "carnes",
+      "es": "Carnes",
+      "en": "Meats",
+      "items": [
+        { "es": "Muslo de pollo deshuesado con patatas fritas", "en": "Boneless chicken thigh with french fries", "price": "18.00" },
+        { "es": "Costillas de cerdo a la barbacoa con patatas fritas", "en": "Barbecue pork ribs with french fries", "price": "28.50" },
+        { "es": "Entraña con patatas fritas", "en": "Outside skirt steak with french fries", "price": "27.50" },
+        { "es": "Chuletas de cordero con patatas fritas", "en": "Lamb chops with french fries", "price": "29.50" },
+        { "es": "Carillera de cerdo ibérico sobre puré de patatas trufado", "en": "Iberian pork cheek on truffled mashed potatoes", "price": "27.00" },
+        { "es": "Entrecot argentino con patatas fritas", "en": "Argentinian entrecôte with french fries", "price": "30.00" },
+        { "es": "Solomillo de ternera con patatas fritas", "en": "Beef tenderloin with french fries", "price": "36.50" },
+        { "es": "Hamburguesa La Estancia con patatas fritas", "en": "Burger La Estancia with french fries", "note": "Angus, doble queso, pepinillos, huevo, lechuga, tomate y bacon", "price": "19.00" },
+        { "es": "Chuletón de Ávila 500 g con patatas fritas", "en": "Spanish ribeye 500 g with french fries", "price": "36.00" },
+        { "es": "Chuletón de ternera 1 kg / para 2 personas", "en": "Spanish ribeye 1 kg / for 2 people", "note": "Incluye ensalada y patatas fritas", "price": "72.00" },
+        { "es": "Costillar de ternera a baja temperatura", "en": "Slow-cooked beef ribs", "note": "Con puré de patata y boniato y verduritas", "price": "28.00" },
+        { "es": "Milanesa napolitana con patatas fritas", "en": "Milanesa with sauce and mozzarella", "note": "Pollo o ternera", "price": "26.00" },
+        { "es": "Milanesa con huevo", "en": "Milanesa with fried egg", "price": "22.50" },
+        { "es": "Parrillada de carnes con patatas fritas / para 2 personas", "en": "Grilled meats with french fries / for 2 people", "note": "Pollo, chorizo, costillas de cerdo, tira de asado, entraña y entrecot", "price": "65.00" },
+        { "es": "Filete tomahawk 1,1 kg / para 2 personas", "en": "Tomahawk steak 1.1 kg / for 2 people", "note": "Incluye ensalada, patatas fritas y botella de vino de la casa", "price": "93.00" },
+        { "es": "T-Bone 850 g", "en": "T-Bone steak 850 g", "note": "Incluye patatas fritas", "price": "60.00" }
+      ]
+    },
+    {
+      "id": "pescados",
+      "es": "Pescados y mariscos",
+      "en": "Fish & seafood",
+      "items": [
+        { "es": "Lubina con patatas fritas", "en": "Sea bass", "price": "30.00" },
+        { "es": "Dorada", "en": "Gilt-head bream", "price": "30.00" },
+        { "es": "Salmón con puré de patatas y salsa de mariscos", "en": "Salmon with mashed potatoes and seafood sauce", "price": "26.50" },
+        { "es": "Parrillada de mariscos / para 2 personas", "en": "Grilled seafood / for 2 people", "note": "Gambón, mejillón, cigalas, lubina, salmón y sepia + botella de vino blanco de la casa", "price": "90.00" }
+      ]
+    },
+    {
+      "id": "infantil",
+      "es": "Menú infantil",
+      "en": "Kids menu",
+      "items": [
+        { "es": "Milanesa con patatas fritas", "en": "Milanesa with french fries", "note": "Incluye bebida y postre", "price": "11.00" },
+        { "es": "Hamburguesa con patatas fritas", "en": "Burger with french fries", "note": "Incluye bebida y postre", "price": "11.00" }
+      ]
+    },
+    {
+      "id": "postres",
+      "es": "Postres",
+      "en": "Desserts",
+      "items": [
+        { "es": "Frutas de estación", "en": "Season fruit", "price": "5.00" },
+        { "es": "Panqueque con helado", "en": "Argentinian caramel crêpe", "price": "8.50" },
+        { "es": "Flan con dulce de leche", "en": "Spanish flan with caramel cream", "price": "5.00" },
+        { "es": "Coulant de chocolate", "en": "Chocolate coulant", "price": "8.00" },
+        { "es": "Brownie con helado de vainilla", "en": "Brownie with vanilla ice cream", "price": "7.50" },
+        { "es": "Tiramisú", "en": "Tiramisu", "price": "8.00" },
+        { "es": "Copa de helado", "en": "Ice cream", "price": "7.00" },
+        { "es": "Surtido de postres", "en": "Assorted desserts", "price": "22.00" }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "es": "Bebidas, cervezas y café",
+      "en": "Drinks, beer & coffee",
+      "groups": [
+        {
+          "es": "Bebidas",
+          "en": "Drinks",
+          "items": [
+            { "es": "Agua", "en": "Water", "price": "3.70" },
+            { "es": "Agua con gas", "en": "Sparkling water", "price": "4.50" },
+            { "es": "Coca-Cola", "en": "Coca-Cola", "price": "3.50" },
+            { "es": "Coca-Cola Zero", "en": "Coca-Cola Zero", "price": "3.50" },
+            { "es": "Fanta", "en": "Fanta", "price": "3.50" },
+            { "es": "Sprite", "en": "Sprite", "price": "3.50" },
+            { "es": "Aquarius", "en": "Aquarius", "price": "3.50" },
+            { "es": "Nestea", "en": "Nestea", "price": "3.50" },
+            { "es": "Zumo", "en": "Juice", "price": "3.50" },
+            { "es": "Casera", "en": "Casera", "price": "3.50" }
+          ]
+        },
+        {
+          "es": "Cervezas",
+          "en": "Beer",
+          "items": [
+            { "es": "Caña Turia (tostada)", "en": "Turia draft", "price": "3.20" },
+            { "es": "Pinta Turia (tostada)", "en": "Turia pint", "price": "6.00" },
+            { "es": "Caña Estrella Levante", "en": "Estrella Levante draft", "price": "3.00" },
+            { "es": "Pinta Estrella Levante", "en": "Estrella Levante pint", "price": "5.50" },
+            { "es": "Tercios: Estrella Galicia, Alhambra", "en": "Bottled: Estrella Galicia, Alhambra", "price": "2.80" },
+            { "es": "Tercio 0,0%", "en": "Alcohol-free bottle", "price": "2.80" },
+            { "es": "Tercio Reserva Alhambra", "en": "Alhambra Reserva bottle", "price": "3.50" }
+          ]
+        },
+        {
+          "es": "Cafés",
+          "en": "Coffee",
+          "items": [
+            { "es": "Solo", "en": "Espresso", "price": "1.70" },
+            { "es": "Cortado", "en": "Cortado", "price": "2.20" },
+            { "es": "Expreso", "en": "Espresso", "price": "1.50" },
+            { "es": "Café con leche", "en": "Coffee with milk", "price": "2.50" },
+            { "es": "Americano", "en": "Americano", "price": "2.30" },
+            { "es": "Capuccino", "en": "Cappuccino", "price": "2.90" },
+            { "es": "Bombón", "en": "Bombón", "price": "2.70" },
+            { "es": "Carajillo", "en": "Carajillo", "price": "3.20" },
+            { "es": "Irlandés", "en": "Irish coffee", "price": "8.50" },
+            { "es": "Infusión", "en": "Herbal tea", "price": "2.20" },
+            { "es": "Belmonte", "en": "Belmonte", "price": "3.00" },
+            { "es": "Tewhis", "en": "Tewhis", "price": "2.50" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vinos",
+      "es": "Vinos, cavas y cócteles",
+      "en": "Wines, cava & cocktails",
+      "groups": [
+        {
+          "es": "Tinto argentino",
+          "en": "Argentinian red",
+          "items": [
+            { "es": "La Linda (Malbec)", "en": "La Linda (Malbec)", "price": "23.00" },
+            { "es": "San Felipe (12 uvas)", "en": "San Felipe (12 grapes)", "price": "20.00" },
+            { "es": "Postales (Malbec)", "en": "Postales (Malbec)", "price": "23.00" }
+          ]
+        },
+        {
+          "es": "Rioja",
+          "en": "Rioja",
+          "items": [
+            { "es": "Montaña (Garnacha)", "en": "Montaña (Garnacha)", "price": "38.00" },
+            { "es": "Anaya (Crianza)", "en": "Anaya (Crianza)", "price": "20.00" }
+          ]
+        },
+        {
+          "es": "Ribera del Duero",
+          "en": "Ribera del Duero",
+          "items": [
+            { "es": "Díaz Bayo — Crianza (8 meses)", "en": "Díaz Bayo — Crianza (8 months)", "price": "18.00" },
+            { "es": "Díaz Bayo — Crianza (15 meses)", "en": "Díaz Bayo — Crianza (15 months)", "price": "23.00" },
+            { "es": "Arrocal 2023", "en": "Arrocal 2023", "price": "21.00" }
+          ]
+        },
+        {
+          "es": "Alicante",
+          "en": "Alicante",
+          "items": [
+            { "es": "Sericis — Monastrell", "en": "Sericis — Monastrell", "price": "26.00" },
+            { "es": "Arbui — Monastrell", "en": "Arbui — Monastrell", "price": "28.00" },
+            { "es": "El Caire — Monastrell", "en": "El Caire — Monastrell", "price": "19.00" }
+          ]
+        },
+        {
+          "es": "Blancos",
+          "en": "White",
+          "items": [
+            { "es": "Chardonnay", "en": "Chardonnay", "price": "19.00" },
+            { "es": "4 Rayas — Verdejo", "en": "4 Rayas — Verdejo", "price": "20.00" },
+            { "es": "O Luar do Sil", "en": "O Luar do Sil", "price": "24.00" }
+          ]
+        },
+        {
+          "es": "Rosado",
+          "en": "Rosé",
+          "items": [
+            { "es": "Lambrusco", "en": "Lambrusco", "price": "15.00" },
+            { "es": "El Rosé de Aresan", "en": "El Rosé de Aresan", "price": "17.00" }
+          ]
+        },
+        {
+          "es": "Copas de vino",
+          "en": "Wine by the glass",
+          "items": [
+            { "es": "Copa vino tinto", "en": "Red wine glass", "price": "4.50" },
+            { "es": "Copa vino blanco", "en": "White wine glass", "price": "4.50" },
+            { "es": "Copa vino rosado", "en": "Rosé wine glass", "price": "4.50" }
+          ]
+        },
+        {
+          "es": "Cava y cócteles",
+          "en": "Cava & cocktails",
+          "items": [
+            { "es": "Tinto de verano 1 L", "en": "Tinto de verano 1 L", "price": "13.00" },
+            { "es": "Tinto de verano / copa", "en": "Tinto de verano / glass", "price": "5.50" },
+            { "es": "Sangría 1 L", "en": "Sangria 1 L", "price": "17.00" },
+            { "es": "Sangría / copa", "en": "Sangria / glass", "price": "6.50" },
+            { "es": "Ron Barceló (combinado)", "en": "Barceló rum mixed", "price": "8.50" },
+            { "es": "Gin Tanqueray (combinado)", "en": "Tanqueray gin mixed", "price": "8.50" },
+            { "es": "Cava (botella)", "en": "Cava bottle", "price": "22.00" },
+            { "es": "Benjamines (cava mini)", "en": "Cava mini bottle", "price": "8.00" }
+          ]
+        }
+      ]
+    }
+  ]
+};
