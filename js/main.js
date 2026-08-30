@@ -1,25 +1,4 @@
 (function () {
-  const header = document.querySelector(".site-header");
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav");
-
-  const onScroll = () => {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 12);
-  };
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", nav.classList.contains("is-open"));
-    });
-    nav.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => nav.classList.remove("is-open"))
-    );
-  }
-
   const price = (value) => `${value} €`;
 
   const allergensFor = (item, groupName) => {
@@ -295,43 +274,4 @@
       .join("");
   }
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  document.querySelectorAll(".reveal").forEach((el) => {
-    if (reduceMotion) {
-      el.classList.add("is-in");
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "80px 0px 0px 0px" }
-    );
-    io.observe(el);
-    if (el.getBoundingClientRect().top < window.innerHeight) {
-      el.classList.add("is-in");
-    }
-  });
-
-  const heroMedia = document.querySelector("[data-parallax] img");
-  const slowFrames = [...document.querySelectorAll("[data-parallax-slow] img")];
-  if (!reduceMotion && (heroMedia || slowFrames.length)) {
-    const onParallax = () => {
-      const y = window.scrollY;
-      if (heroMedia) heroMedia.style.transform = `translate3d(0, ${y * 0.28}px, 0) scale(1.12)`;
-      slowFrames.forEach((img) => {
-        const rect = img.parentElement.getBoundingClientRect();
-        const offset = (rect.top - window.innerHeight * 0.4) * 0.12;
-        img.style.transform = `translate3d(0, ${offset}px, 0) scale(1.08)`;
-      });
-    };
-    onParallax();
-    window.addEventListener("scroll", onParallax, { passive: true });
-  }
 })();

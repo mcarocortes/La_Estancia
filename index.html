@@ -8,205 +8,197 @@
   <link rel="icon" href="assets/images/brand/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="intro" data-intro aria-hidden="true">
+    <img src="assets/images/brand/logo.png" alt="">
+  </div>
+  <div class="page-veil" data-veil></div>
   <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="topbar">
+    <span>Alicante</span>
+    <span>Virgen del Socorro 79</span>
+    <a href="tel:+34966350321">+34 966 35 03 21</a>
+  </div>
   <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.html">
+    <nav class="nav-grid" aria-label="Principal">
+      <a class="is-active" href="index.html">Inicio</a>
+      <a href="carta.html">Carta</a>
+      <a href="galeria.html">Galería</a>
+      <a class="nav-brand" href="index.html">
         <img src="assets/images/brand/logo.png" alt="Asador La Estancia">
-        <div class="logo-text">La Estancia<span>Asador · Alicante</span></div>
       </a>
-      <nav class="nav" aria-label="Principal">
-        <a class="is-active" href="index.html">Inicio</a>
-        <a href="carta.html">Carta</a>
-        <a href="galeria.html">Galería</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
-      <a class="btn header-cta" href="reservas.html">Reservar</a>
-      <a class="btn header-cta-mobile" href="reservas.html">Reservar</a>
-      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-    </div>
+      <a href="contacto.html">Contacto</a>
+      <a href="reservas.html">Reservar</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
   </header>
 
   <main id="contenido">
-    <section class="hero">
-      <div class="hero-media" data-parallax>
-        <img src="assets/images/tomahawk.jpg" alt="Tomahawk a la brasa en Asador La Estancia">
-      </div>
-      <div class="hero-content reveal">
-        <p class="kicker">Alicante · Virgen del Socorro</p>
-        <h1>La parrilla<br>argentina</h1>
-        <p class="lead">Carnes nacionales y argentinas a la brasa, mariscos del Mediterráneo y una sala que se siente como casa.</p>
-        <div class="hero-actions">
-          <a class="btn" href="reservas.html">Reservar mesa</a>
-          <a class="btn btn-ghost" href="carta.html">Ver la carta</a>
+    <section class="hero-pin" data-hero-pin>
+      <h1 class="visually-hidden">Asador La Estancia, parrilla argentina en Alicante</h1>
+      <div class="hero-sticky">
+        <div class="hero-copy" data-hero-copy>
+          <p class="hero-line" data-hero-line>Esto no es solo carne.</p>
+          <p class="hero-line" data-hero-line>Esto es la casa.</p>
+          <p class="hero-line" data-hero-line>Tiempo para la brasa.</p>
+          <p class="hero-line" data-hero-line>Tiempo para la mesa.</p>
         </div>
-        <div class="hero-meta">
-          <div>
-            <strong>Dirección</strong>
-            Virgen del Socorro 79, Alicante
+        <div class="hero-meat" data-hero-meat>
+          <img src="assets/images/Hero1.png" alt="Corte a la brasa en Asador La Estancia">
+        </div>
+        <div class="hero-foot">
+          <span>Virgen del Socorro 79</span>
+          <span>Lu–Ju 19:00–00:00 · Vi–Do también 13:30–16:00</span>
+        </div>
+      </div>
+    </section>
+
+    <a class="discover" href="carta.html">
+      <img src="assets/images/feast.jpg" alt="Parrillada de La Estancia">
+      <div class="discover-copy">
+        <small>Nuestra carta</small>
+        <h2>Carnes, mar y copa.</h2>
+        <p>Una sola carta. Entrantes, parrilla, pescado y vinos. En español e inglés, con alérgenos en cada plato.</p>
+        <span class="link-more">Descubrir</span>
+      </div>
+    </a>
+
+    <section class="clock-pin" data-clock-pin>
+      <div class="clock-sticky">
+        <div class="clock-face" aria-hidden="true">
+          <div class="hand hour" data-hand-hour></div>
+          <div class="hand minute" data-hand-minute></div>
+        </div>
+        <p class="clock-time" data-clock-time>13:30</p>
+        <p class="clock-copy" data-clock-label>Mediodía de fin de semana</p>
+        <p class="clock-hours">La reserva se anula a los 15 minutos de retraso.</p>
+      </div>
+    </section>
+
+    <section class="hscroll" data-hscroll>
+      <div class="hscroll-sticky">
+        <div class="hscroll-track" data-hscroll-track>
+          <article class="story-card">
+            <img src="assets/images/gallery/ember.jpg" alt="Brasa del asador">
+            <div>
+              <small>El fuego</small>
+              <h3>La brasa manda.</h3>
+              <p>Entraña, entrecot, chuletón de Ávila, tomahawk y parrilladas para compartir. El corte llega a la mesa en su punto.</p>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="assets/images/portada-luis.png" alt="Luis, al frente de Asador La Estancia">
+            <div>
+              <small>La casa</small>
+              <h3>Luis, al frente.</h3>
+              <p>Sala atenta y la costumbre argentina de recibir como en casa. El dueño está en el servicio, no en un recuadro.</p>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="assets/images/gallery/wine.jpg" alt="Copa de vino">
+            <div>
+              <small>El vino</small>
+              <h3>Malbec a la mesa.</h3>
+              <p>Tintos argentinos, Rioja, Ribera y Alicante. Blancos, rosados, cava y sangría para el mediodía.</p>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="assets/images/gallery/dining.jpg" alt="Sala de La Estancia">
+            <div>
+              <small>La mesa</small>
+              <h3>Celebrar, sin prisa.</h3>
+              <p>Locales, turistas y mesas largas. Virgen del Socorro 79, a un paso de la playa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mask-type">
+      <p>Fuego. Corte. Casa.</p>
+    </section>
+
+    <section class="ingredients">
+      <p class="fade-up" style="letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--gold)">Cuatro tiempos</p>
+      <ul>
+        <li data-word>Brasa</li>
+        <li data-word>Corte</li>
+        <li data-word>Vino</li>
+        <li data-word>Mesa</li>
+      </ul>
+    </section>
+
+    <section class="rail-wrap">
+      <div class="container fade-up">
+        <small style="color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem">De la parrilla</small>
+        <h2>Lo que pide el fuego.</h2>
+      </div>
+      <div class="rail">
+        <article class="dish-card">
+          <img src="assets/images/tomahawk.jpg" alt="Tomahawk">
+          <div class="body">
+            <span class="badge">Para 2</span>
+            <h3>Tomahawk 1,1 kg</h3>
+            <p>Ensalada, patatas fritas y vino de la casa.</p>
+            <div class="price">93.00 €</div>
           </div>
-          <div>
-            <strong>Teléfono</strong>
-            <a href="tel:+34966350321">+34 966 35 03 21</a>
+        </article>
+        <article class="dish-card">
+          <img src="assets/images/feast.jpg" alt="Parrillada de carnes">
+          <div class="body">
+            <span class="badge">Para 2</span>
+            <h3>Parrillada de carnes</h3>
+            <p>Pollo, chorizo, costillas, tira de asado, entraña y entrecot.</p>
+            <div class="price">65.00 €</div>
           </div>
-          <div>
-            <strong>Horario</strong>
-            Lu–Ju 19:00–00:00 · Vi–Do también 13:30–16:00
+        </article>
+        <article class="dish-card">
+          <img src="assets/images/gallery/ribeye.jpg" alt="Entrecot argentino">
+          <div class="body">
+            <h3>Entrecot argentino</h3>
+            <p>Con patatas fritas. El clásico de la casa.</p>
+            <div class="price">30.00 €</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">El asador</p>
-          <h2>Fuego, corte y hospitalidad argentina.</h2>
-          <p class="lead">En La Estancia la brasa manda: entraña, entrecot, chuletón de Ávila, tomahawk y parrilladas para compartir. También hay marisco y pescado a la parrilla para quien busca el Mediterráneo junto a la carne.</p>
-          <p>Venimos a acompañar tu mesa — celebraciones, turistas y locales — con el ritmo de un asador de verdad.</p>
-          <div class="hero-actions">
-            <a class="btn" href="carta.html">La carta</a>
-            <a class="btn btn-ghost" href="galeria.html">Galería de platos</a>
+        </article>
+        <article class="dish-card">
+          <img src="assets/images/gallery/seafood.jpg" alt="Parrillada de mariscos">
+          <div class="body">
+            <span class="badge">Marisco</span>
+            <h3>Parrillada de mariscos</h3>
+            <p>Gambón, mejillón, cigalas, lubina, salmón, sepia y vino blanco.</p>
+            <div class="price">90.00 €</div>
           </div>
-        </div>
-        <div class="frame" data-parallax-slow>
-          <img src="assets/images/gallery/ember.jpg" alt="Brasa del asador">
-        </div>
+        </article>
+        <article class="dish-card">
+          <img src="assets/images/gallery/ember.jpg" alt="Pulpo braseado">
+          <div class="body">
+            <h3>Pulpo braseado</h3>
+            <p>Con puré de patatas. Entrante de la casa.</p>
+            <div class="price">26.00 €</div>
+          </div>
+        </article>
+      </div>
+      <div class="container">
+        <a class="link-more" href="carta.html">Ver la carta</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split reverse">
-        <div class="frame reveal" data-parallax-slow>
-          <img src="assets/images/portada-luis.png" alt="Luis, al frente de Asador La Estancia">
-        </div>
-        <div class="reveal">
-          <p class="eyebrow">La casa</p>
-          <h2>Luis, al frente de la parrilla.</h2>
-          <p class="lead">La Estancia se siente en el trato: sala atenta, fuego en su punto y la costumbre argentina de recibir como en casa. Aquí el dueño está en el servicio, no en un recuadro corporativo.</p>
-          <a class="btn btn-ghost" href="galeria.html">Ver al equipo</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container reveal" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">De la parrilla</p>
-        <h2>Lo que pide la brasa.</h2>
-        <p class="lead" style="margin-inline:auto">Cortes para uno y para dos. Precios de la carta.</p>
-        <div class="dish-grid">
-          <article class="dish-card">
-            <img src="assets/images/tomahawk.jpg" alt="Tomahawk">
-            <div class="body">
-              <span class="badge">Para 2</span>
-              <h3>Tomahawk 1,1 kg</h3>
-              <p>Ensalada, patatas fritas y vino de la casa.</p>
-              <div class="price">93.00 €</div>
-            </div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/images/feast.jpg" alt="Parrillada de carnes">
-            <div class="body">
-              <span class="badge">Para 2</span>
-              <h3>Parrillada de carnes</h3>
-              <p>Pollo, chorizo, costillas, tira de asado, entraña y entrecot.</p>
-              <div class="price">65.00 €</div>
-            </div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/images/gallery/ribeye.jpg" alt="Entrecot argentino">
-            <div class="body">
-              <h3>Entrecot argentino</h3>
-              <p>Con patatas fritas. El clásico de la casa.</p>
-              <div class="price">30.00 €</div>
-            </div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/images/gallery/tomahawk-stock.jpg" alt="Chuletón de Ávila">
-            <div class="body">
-              <h3>Chuletón de Ávila 500 g</h3>
-              <p>Ribeye español a la brasa, con patatas fritas.</p>
-              <div class="price">36.00 €</div>
-            </div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/images/gallery/seafood.jpg" alt="Parrillada de mariscos">
-            <div class="body">
-              <span class="badge">Marisco</span>
-              <h3>Parrillada de mariscos</h3>
-              <p>Gambón, mejillón, cigalas, lubina, salmón, sepia y vino blanco.</p>
-              <div class="price">90.00 €</div>
-            </div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/images/gallery/ember.jpg" alt="Pulpo braseado">
-            <div class="body">
-              <h3>Pulpo braseado</h3>
-              <p>Con puré de patatas. Entrante de la casa.</p>
-              <div class="price">26.00 €</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container reveal" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">Imágenes</p>
-        <h2>La brasa, de cerca.</h2>
-        <div class="masonry home-masonry">
-          <figure><img src="assets/images/insta-1.jpg" alt="Ambiente La Estancia"></figure>
-          <figure><img src="assets/images/gallery/grill.jpg" alt="Grill"></figure>
-          <figure><img src="assets/images/plato-3.png" alt="Plato"></figure>
-          <figure><img src="assets/images/portada-luis.png" alt="Luis, dueño de La Estancia"></figure>
-          <figure><img src="assets/images/tomahawk.jpg" alt="Tomahawk"></figure>
-          <figure><img src="assets/images/gallery/dining.jpg" alt="Sala"></figure>
-          <figure><img src="assets/images/gallery/seafood.jpg" alt="Mariscos"></figure>
-          <figure><img src="assets/images/insta-3.jpg" alt="Mesa"></figure>
-          <figure><img src="assets/images/evento.jpg" alt="Ambiente"></figure>
-          <figure><img src="assets/images/gallery/ribs.jpg" alt="Costillas"></figure>
-          <figure><img src="assets/images/plato-4.png" alt="Cortes"></figure>
-          <figure><img src="assets/images/gallery/wine.jpg" alt="Vinos"></figure>
-        </div>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="btn" href="galeria.html">Ver galería</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container split">
-        <div class="frame reveal" data-parallax-slow>
-          <img src="assets/images/gallery/wine.jpg" alt="Copa de vino">
-        </div>
-        <div class="reveal">
-          <p class="eyebrow">Vinos</p>
-          <h2>Malbec, Monastrell y copa a la mesa.</h2>
-          <p class="lead">Tintos argentinos, Rioja, Ribera y Alicante. Blancos, rosados, cava y sangría para el mediodía de fin de semana.</p>
-          <a class="btn btn-ghost" href="carta.html#vinos">Carta de vinos</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container reveal" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">Reserva</p>
+    <a class="discover" href="reservas.html">
+      <img src="assets/images/gallery/dining.jpg" alt="Sala del asador">
+      <div class="discover-copy">
+        <small>Reservar</small>
         <h2>Tu mesa, a la hora de la brasa.</h2>
-        <p class="lead" style="margin-inline:auto">La reserva se anula automáticamente si hay más de 15 minutos de retraso.</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="btn" href="reservas.html">Reservar ahora</a>
-          <a class="btn btn-ghost" href="tel:+34966350321">Llamar</a>
-        </div>
+        <p>Misma lógica que el Booking Calendar. En WordPress, el plugin entra aquí sin perder reservas.</p>
+        <span class="link-more">Reservar ahora</span>
       </div>
-    </section>
+    </a>
 
     <section class="awards-section" id="premios">
-      <div class="container" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">Coronaciones</p>
+      <div class="container fade-up">
+        <small style="color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem">Coronaciones</small>
         <h2>Premios y reconocimiento.</h2>
       </div>
       <div class="awards-marquee">
@@ -219,23 +211,17 @@
             <span>TripAdvisor · 8 años</span>
           </article>
           <article class="award-card">
-            <div class="award-logo award-logo-slot">
-              <span>Logo Google</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Logo Google</span></div>
             <strong>Google 4.7</strong>
             <span>Más de 2.000 opiniones</span>
           </article>
           <article class="award-card">
-            <div class="award-logo award-logo-slot">
-              <span>Logo TripAdvisor</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Logo TripAdvisor</span></div>
             <strong>TripAdvisor 4.7</strong>
             <span>Cerca de 900 reseñas</span>
           </article>
           <article class="award-card">
-            <div class="award-logo award-logo-slot">
-              <span>Diploma o logo</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Diploma o logo</span></div>
             <strong>Otro premio</strong>
             <span>Hueco para certificado</span>
           </article>
@@ -247,23 +233,17 @@
             <span>TripAdvisor · 8 años</span>
           </article>
           <article class="award-card" aria-hidden="true">
-            <div class="award-logo award-logo-slot">
-              <span>Logo Google</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Logo Google</span></div>
             <strong>Google 4.7</strong>
             <span>Más de 2.000 opiniones</span>
           </article>
           <article class="award-card" aria-hidden="true">
-            <div class="award-logo award-logo-slot">
-              <span>Logo TripAdvisor</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Logo TripAdvisor</span></div>
             <strong>TripAdvisor 4.7</strong>
             <span>Cerca de 900 reseñas</span>
           </article>
           <article class="award-card" aria-hidden="true">
-            <div class="award-logo award-logo-slot">
-              <span>Diploma o logo</span>
-            </div>
+            <div class="award-logo award-logo-slot"><span>Diploma o logo</span></div>
             <strong>Otro premio</strong>
             <span>Hueco para certificado</span>
           </article>
@@ -272,12 +252,12 @@
     </section>
 
     <section class="map-block">
-      <div class="map-copy reveal">
-        <p class="eyebrow">Cómo llegar</p>
+      <div class="map-copy fade-up">
+        <small style="color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem">Cómo llegar</small>
         <h2>Virgen del Socorro 79.</h2>
         <p>Alicante, junto al barrio y a un paso de la playa.</p>
         <p><a href="tel:+34966350321">+34 966 35 03 21</a></p>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">Abrir en Maps</a>
+        <a class="link-more" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">Abrir en Maps</a>
       </div>
       <div class="map-wrap">
         <iframe title="Mapa Asador La Estancia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Virgen%20del%20Socorro%2079%2C%20Alicante&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
@@ -313,5 +293,6 @@
   <script src="js/menu.js"></script>
   <script src="js/allergens.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
 </body>
 </html>
