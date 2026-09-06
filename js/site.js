@@ -32,13 +32,17 @@
         title: "Asador La Estancia · Parrilla argentina en Alicante",
         h1: "Bienvenidos a",
         note: "Parrilla argentina en Alicante · Virgen del Socorro 79",
+        aboutK: "Nuestro patrimonio",
+        galleryK: "Los platos",
+        galleryMore: "Ver galería",
         intro: "Somos la parrilla argentina de Alicante, un sitio para sentarse con los tuyos y disfrutar",
         introP: "Asador La Estancia es un clásico restaurante de carnes argentinas. Con raíces en la tradición, ofrecemos a nuestros clientes un ambiente elegante y vibrante, una cocina galardonada y vinos impecables, haciendo de cada comida con nosotros una experiencia inolvidable.",
+        cta1: "Excelencia en cada brasa, elegancia en cada detalle.",
         kicker: "Carta destacada",
         grill: "La parrilla",
         starters: "Entrantes",
         meats: "Carnes",
-        cta: "Una sola casa. La brasa, el vino y la mesa, en el centro de Alicante.",
+        cta: "Excelencia en cada brasa, elegancia en cada detalle.",
         beach: "Virgen del Socorro 79, a un paso de la playa.",
         awardsK: "Coronaciones",
         awards: "Premios",
@@ -135,8 +139,12 @@
         title: "Asador La Estancia · Argentinian grill in Alicante",
         h1: "Welcome to",
         note: "Argentinian grill in Alicante · Virgen del Socorro 79",
+        aboutK: "The house",
+        galleryK: "The dishes",
+        galleryMore: "View gallery",
         intro: "We are Alicante’s Argentinian grill, a place to sit with your people and enjoy",
         introP: "Asador La Estancia is a classic Argentinian steakhouse. Rooted in tradition, we offer our guests an elegant, vibrant room, award-winning cooking and impeccable wines, making every meal with us unforgettable.",
+        cta1: "Excellence in every ember, elegance in every detail.",
         kicker: "Featured menu",
         grill: "The grill",
         starters: "Starters",
@@ -356,8 +364,12 @@
       document.title = copy.home.title;
       setText("[data-copy=h1]", copy.home.h1);
       setText("[data-copy=note]", copy.home.note);
+      setText("[data-copy=aboutK]", copy.home.aboutK);
+      setText("[data-copy=galleryK]", copy.home.galleryK);
+      setText("[data-copy=galleryMore]", copy.home.galleryMore);
       setText("[data-copy=intro]", copy.home.intro);
       setText("[data-copy=introP]", copy.home.introP);
+      setText("[data-copy=cta1]", copy.home.cta1);
       setText("[data-copy=kicker]", copy.home.kicker);
       setText("[data-copy=grill]", copy.home.grill);
       setText("[data-copy=starters]", copy.home.starters);
@@ -552,7 +564,9 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const blocks = document.querySelectorAll([
-      ".intro > *",
+      ".intro-photo-tall",
+      ".intro-copy > *",
+      ".intro-stack .intro-photo",
       ".featured",
       ".featured .menu-col",
       ".cta-band .inner",
@@ -560,7 +574,7 @@
       ".awards",
       ".award-card",
       ".quote-block",
-      ".strip",
+      ".lookbook",
       ".split-copy",
       ".booking-box",
       ".map-wrap",
@@ -569,11 +583,14 @@
       ".page-hero-content"
     ].join(","));
 
-    blocks.forEach((el, i) => {
-      el.classList.add("reveal");
-      if (el.matches(".intro > *, .award-card, .featured .menu-col")) {
-        el.style.transitionDelay = `${Math.min(i % 6, 4) * 0.12}s`;
-      }
+    blocks.forEach((el) => el.classList.add("reveal"));
+
+    document.querySelectorAll(".intro-photo-tall, .intro-copy > *, .intro-stack .intro-photo").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.12}s`;
+    });
+
+    document.querySelectorAll(".award-card, .featured .menu-col").forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i, 4) * 0.12}s`;
     });
 
     const io = new IntersectionObserver((entries) => {
@@ -587,10 +604,35 @@
     blocks.forEach((el) => io.observe(el));
   }
 
+  function startLookbook() {
+    const rail = document.querySelector("[data-lookbook]");
+    if (!rail) return;
+
+    const track = rail.querySelector(".lookbook-track");
+    if (!track || track.dataset.cloned === "1") return;
+
+    const set = document.createElement("div");
+    set.className = "lookbook-set";
+    while (track.firstChild) set.appendChild(track.firstChild);
+
+    const clone = set.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.append(set, clone);
+    track.dataset.cloned = "1";
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const io = new IntersectionObserver(([entry]) => {
+      track.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+    }, { threshold: 0.08 });
+    io.observe(rail);
+  }
+
   mountChrome();
   applyPageCopy();
   renderFullMenu();
   bindChrome();
   startHeroSlides();
+  startLookbook();
   revealOnScroll();
 })();
