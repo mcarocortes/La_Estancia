@@ -1,18 +1,36 @@
 window.ALLERGEN_LABELS = {
-  G: "Gluten",
-  C: "Crustáceos",
-  H: "Huevos",
-  P: "Pescado",
-  N: "Cacahuetes",
-  S: "Soja",
-  L: "Lácteos",
-  F: "Frutos secos",
-  Ap: "Apio",
-  M: "Mostaza",
-  Se: "Sésamo",
-  Su: "Sulfitos",
-  Al: "Altramuces",
-  Mo: "Moluscos"
+  es: {
+    G: "Gluten",
+    C: "Crustáceos",
+    H: "Huevos",
+    P: "Pescado",
+    N: "Cacahuetes",
+    S: "Soja",
+    L: "Lácteos",
+    F: "Frutos secos",
+    Ap: "Apio",
+    M: "Mostaza",
+    Se: "Sésamo",
+    Su: "Sulfitos",
+    Al: "Altramuces",
+    Mo: "Moluscos"
+  },
+  en: {
+    G: "Gluten",
+    C: "Crustaceans",
+    H: "Eggs",
+    P: "Fish",
+    N: "Peanuts",
+    S: "Soy",
+    L: "Dairy",
+    F: "Nuts",
+    Ap: "Celery",
+    M: "Mustard",
+    Se: "Sesame",
+    Su: "Sulphites",
+    Al: "Lupin",
+    Mo: "Molluscs"
+  }
 };
 
 window.DISH_ALLERGENS = {

@@ -8,87 +8,39 @@
   <link rel="icon" href="assets/images/brand/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="page-veil" data-veil></div>
+<body data-page="carta">
   <a class="skip" href="#contenido">Saltar al contenido</a>
-  <div class="topbar">
-    <span>Alicante</span>
-    <span>Virgen del Socorro 79</span>
-    <a href="tel:+34966350321">+34 966 35 03 21</a>
-  </div>
-  <header class="site-header">
-    <nav class="nav-grid" aria-label="Principal">
-      <a href="index.html">Inicio</a>
-      <a class="is-active" href="carta.html">Carta</a>
-      <a href="galeria.html">Galería</a>
-      <a class="nav-brand" href="index.html">
-        <img src="assets/images/brand/logo.png" alt="Asador La Estancia">
-      </a>
-      <a href="contacto.html">Contacto</a>
-      <a href="reservas.html">Reservar</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-  </header>
+  <header class="site-header" data-header></header>
 
   <main id="contenido">
-    <div class="page-hero compact">
-      <div class="container">
-        <h1 class="reveal-line"><span>Brasa, mar y copa.</span></h1>
-        <p class="lead fade-up">Una sola carta, en español e inglés. Cada plato indica sus alérgenos.</p>
+    <section class="page-hero">
+      <img class="hero-bg" src="assets/images/feast.jpg" alt="Parrillada de La Estancia">
+      <div class="page-hero-content">
+        <h1 data-copy="h1">La carta</h1>
+        <p data-copy="lead">Carnes, mar, vinos y postres. En español e inglés, con alérgenos en cada plato.</p>
       </div>
-    </div>
+    </section>
 
-    <div class="menu-tabs">
+    <section class="menu-page">
       <div class="container">
-        <div class="scroller" data-menu-tabs></div>
-      </div>
-    </div>
-
-    <div class="container allergen-legend fade-up">
-      <p><strong>Alérgenos.</strong> Códigos según el reglamento UE. Orientativo: confirma siempre en sala si viajas con alergia.</p>
-      <div class="allergen-legend-list" data-allergen-legend></div>
-    </div>
-
-    <div class="container" data-menu></div>
-
-    <section class="section">
-      <div class="container">
-        <a class="link-more" href="reservas.html">Reservar mesa</a>
+        <div class="menu-tools">
+          <div class="tabs" data-tabs></div>
+        </div>
+        <div class="legend">
+          <p data-copy="legend"><strong>Alérgenos.</strong> Códigos según el reglamento UE. Orientativo: confirma siempre en sala si viajas con alergia.</p>
+          <div class="legend-list" data-legend></div>
+        </div>
+        <div data-menu></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="logo-text">Asador La Estancia<span>Parrilla argentina · Alicante</span></div>
-        <p>Virgen del Socorro 79, Alicante<br><a href="tel:+34966350321">+34 966 35 03 21</a></p>
-      </div>
-      <div>
-        <h3>Carta</h3>
-        <p><a href="carta.html">Carta</a><br><a href="galeria.html">Galería</a></p>
-      </div>
-      <div>
-        <h3>Visítanos</h3>
-        <p>Lu–Ju 19:00–00:00<br>Vi–Do 13:30–16:00 / 19:00–00:00</p>
-        <p><a href="reservas.html">Reservar mesa</a> · <a href="contacto.html">Contacto</a></p>
-      </div>
-    </div>
-    <div class="container copy">
-      <span>© Asador La Estancia</span>
-      <span>Prototipo de rediseño · WordPress en fase 3</span>
-    </div>
-  </footer>
-
-  <a class="wa" href="https://wa.me/34966350321" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  <footer class="site-footer" data-footer></footer>
   <script src="js/menu.js"></script>
   <script src="js/allergens.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/motion.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
