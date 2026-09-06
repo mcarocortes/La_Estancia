@@ -52,6 +52,13 @@
         beach: "Virgen del Socorro 79, Alicante. España",
         awardsK: "Nuestra excelencia reconocida",
         awards: "Premios",
+        eventsK: "Momentos Compartidos",
+        eventsTitle: "Grupos y Celebraciones",
+        eventsP: "Diseñado para celebraciones y eventos grupales, ofrecemos menús concertados a medida, mesas largas y un servicio impecable. Disfruta de la auténtica alta cocina a las brasas en un ambiente exclusivo para tus reuniones familiares o de empresa.",
+        events1: "Menús para grupos",
+        events2: "Menús concertados",
+        events3: "Celebraciones y mesas largas",
+        eventsMore: "Reservar mesa para grupos",
         quote: "La carne en su punto, la sala atenta y la sensación de estar en casa. Eso es La Estancia.",
         cite: "Ubicación · Alicante"
       },
@@ -165,6 +172,13 @@
         beach: "Virgen del Socorro 79, a step from the beach.",
         awardsK: "Awards",
         awards: "Recognition",
+        eventsK: "Shared moments",
+        eventsTitle: "Groups and celebrations",
+        eventsP: "Designed for celebrations and group events, we offer tailored set menus, long tables and impeccable service. Enjoy authentic fire-cooked cuisine in an exclusive room for family or company gatherings.",
+        events1: "Group menus",
+        events2: "Set menus",
+        events3: "Celebrations and long tables",
+        eventsMore: "Book a table for groups",
         quote: "Meat cooked right, a room that looks after you, and the feeling of being at home. That is La Estancia.",
         cite: "Location · Alicante"
       },
@@ -398,6 +412,13 @@
       setText("[data-copy=beach]", copy.home.beach);
       setText("[data-copy=awardsK]", copy.home.awardsK);
       setText("[data-copy=awards]", copy.home.awards);
+      setText("[data-copy=eventsK]", copy.home.eventsK);
+      setText("[data-copy=eventsTitle]", copy.home.eventsTitle);
+      setText("[data-copy=eventsP]", copy.home.eventsP);
+      setText("[data-copy=events1]", copy.home.events1);
+      setText("[data-copy=events2]", copy.home.events2);
+      setText("[data-copy=events3]", copy.home.events3);
+      setText("[data-copy=eventsMore]", copy.home.eventsMore);
       setText("[data-copy=quote]", copy.home.quote);
       setText("[data-copy=cite]", copy.home.cite);
       document.querySelectorAll("[data-dish]").forEach((el) => {
@@ -611,6 +632,8 @@
       ".mosaic",
       ".awards",
       ".award-card",
+      ".events-photo",
+      ".events-copy",
       ".quote-block",
       ".lookbook",
       ".split-copy",
