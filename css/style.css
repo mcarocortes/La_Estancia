@@ -602,6 +602,11 @@ button { cursor: pointer; background: none; border: 0; }
   max-width: 680px;
   color: var(--muted);
 }
+.quote-header{
+  font-size: 100px;
+  line-height: 0px;
+  color: var(--gold);
+}
 
 .intro-copy p:not(.section-kicker) {
   max-width: 380px;
@@ -861,8 +866,8 @@ button { cursor: pointer; background: none; border: 0; }
   filter: brightness(0.32);
 }
 
-.cta-band > img{
-
+.cta-band2 > img{
+filter: brightness(0.7);
 }
 
 .cta-band .inner { position: relative; z-index: 1; padding: 80px 24px; }

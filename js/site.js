@@ -59,8 +59,8 @@
         events2: "Menús concertados",
         events3: "Celebraciones y mesas largas",
         eventsMore: "Reservar mesa para grupos",
-        quote: "La carne en su punto, la sala atenta y la sensación de estar en casa. Eso es La Estancia.",
-        cite: "Ubicación · Alicante"
+        quote: "Más que un restaurante, buscamos construir un refugio donde el espacio, el fuego y la calma logren que cada visita se sienta como en casa.",
+        cite: "- Luis Cortés. Chef / Dueño"
       },
       tiles: {
         from: "De la casa", menu: "Carta", viewMenu: "Ver menú",
@@ -179,8 +179,8 @@
         events2: "Set menus",
         events3: "Celebrations and long tables",
         eventsMore: "Book a table for groups",
-        quote: "Meat cooked right, a room that looks after you, and the feeling of being at home. That is La Estancia.",
-        cite: "Location · Alicante"
+        quote: "More than a restaurant, we want to build a refuge where space, fire and calm make every visit feel like home.",
+        cite: "- Luis Cortés. Chef / Owner"
       },
       tiles: {
         from: "The house", menu: "Menu", viewMenu: "View menu",
