@@ -337,21 +337,21 @@
       footer.innerHTML = `
         <section class="visit-band">
           <div class="visit-grid">
-            <div class="visit-col visit1">
+            <div class="visit-col visit1" tabindex="0">
               <p class="section-kicker">${copy.footer.find}</p>
               <h2>${copy.footer.visit}</h2>
               <p class="visit-text">${copy.footer.address}</p>
               <h3>${copy.footer.hours}</h3>
               <p class="visit-text">${copy.footer.hoursText}</p>
-              <a class="intro-more" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">${copy.footer.directions}</a>
+              <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">${copy.footer.directions}</a>
             </div>
-            <div class="visit-col reservation2">
+            <div class="visit-col reservation2" tabindex="0">
               <p class="section-kicker">${copy.footer.bookK}</p>
               <h2>${copy.footer.reserve}</h2>
               <p class="visit-text">${copy.footer.reserveP}</p>
               <h3>${copy.footer.booking}</h3>
               <p class="visit-text">${copy.footer.email}: <a href="mailto:reservas.laestancia79@gmail.com">laestancia79@gmail.com</a><br>${copy.footer.callUs}: <a href="tel:+34966350321">+34 966 35 03 21</a></p>
-              <a class="intro-more" href="reservas.html">${copy.footer.online}</a>
+              <a class="btn-ghost" href="reservas.html">${copy.footer.online}</a>
             </div>
           </div>
         </section>
@@ -362,12 +362,7 @@
               <a href="https://www.instagram.com/asadorlaestancia/" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.ig}</a>
               <a href="https://wa.me/34966350321" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.wa}</a>
             </div>
-            <nav class="footer-nav" aria-label="Footer">
-              <a href="index.html">${copy.nav.inicio}</a>
-              <a href="carta.html">${copy.nav.carta}</a>
-              <a href="reservas.html">${copy.nav.reservas}</a>
-              <a href="contacto.html">${copy.nav.contacto}</a>
-            </nav>
+
             <p class="footer-legal">© Asador La Estancia · Creado por Macarena Caro</p>
           </div>
         </div>
@@ -533,6 +528,17 @@
       if (event.target.closest("[data-close-nav]") || event.target.closest(".nav-drawer a")) {
         drawer?.classList.remove("is-open");
       }
+      const visitCol = event.target.closest(".visit-col");
+      document.querySelectorAll(".visit-col.is-active").forEach((el) => {
+        if (el !== visitCol) el.classList.remove("is-active");
+      });
+      if (visitCol) visitCol.classList.add("is-active");
+    });
+
+    document.addEventListener("mouseout", (event) => {
+      const col = event.target.closest(".visit-col");
+      if (!col || col.contains(event.relatedTarget)) return;
+      col.classList.remove("is-active");
     });
 
     const header = document.querySelector("[data-header]");

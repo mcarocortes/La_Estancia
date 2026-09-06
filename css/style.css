@@ -193,7 +193,7 @@ button { cursor: pointer; background: none; border: 0; }
 
 .btn-ghost:hover {
   background: #fff;
-  color: #111;
+  color: #111 !important;
 }
 
 .header-actions {
@@ -294,7 +294,7 @@ button { cursor: pointer; background: none; border: 0; }
   background-color: #050505;
   background-image:
     linear-gradient(rgba(5, 5, 5, 0.72), rgba(5, 5, 5, 0.72)),
-    url("../assets/images/asado.webp");
+    url("../assets/images/intro5.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1500,7 +1500,7 @@ filter: brightness(0.7);
 
 .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 
-/* Footer — demo2 visit / reserve / bar */
+/* Footer */
 .site-footer {
   height: 70vh;
   padding: 110px 24px;
@@ -1515,21 +1515,111 @@ filter: brightness(0.7);
 }
 
 .visit-grid {
-   height: 100%;
+  height: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  transition: grid-template-columns 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visit-grid:has(.visit1:hover),
+.visit-grid:has(.visit1.is-active),
+.visit-grid:has(.visit1:focus-visible) {
+  grid-template-columns: 1.22fr 0.78fr;
+}
+
+.visit-grid:has(.reservation2:hover),
+.visit-grid:has(.reservation2.is-active),
+.visit-grid:has(.reservation2:focus-visible) {
+  grid-template-columns: 0.78fr 1.22fr;
 }
 
 .visit-col {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
   text-align: center;
   padding: 8px 48px;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
 }
 
+.visit-col::before,
+.visit-col::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.visit-col::before {
+  background: url("../assets/images/gallery/place2.png") center / cover no-repeat;
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -2;
+}
+
+.reservation2::before {
+  background: url("../assets/images/gallery/place1.png") center / cover no-repeat;
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -2;
+}
+
+.visit-col::after {
+  background: rgba(5, 5, 5, 0.921);
+  transition: background 0.55s ease;
+  z-index: -1;
+}
+
+.visit-col:hover,
+.visit-col.is-active,
+.visit-col:focus-visible {
+  z-index: 2;
+}
+
+.visit-col:hover::before,
+.visit-col.is-active::before,
+.visit-col:focus-visible::before {
+  transform: scale(1.12);
+}
+
+.visit-col:hover::after,
+.visit-col.is-active::after,
+.visit-col:focus-visible::after {
+  background: rgba(5, 5, 5, 0.581);
+}
+
+.visit-col:hover,
+.visit-col.is-active,
+.visit-col:focus-visible,
+.visit-col:hover :is(h2, h3, p, a, .section-kicker, .visit-text),
+.visit-col.is-active :is(h2, h3, p, a, .section-kicker, .visit-text),
+.visit-col:focus-visible :is(h2, h3, p, a, .section-kicker, .visit-text) {
+  color: #fff !important;
+}
+
+.visit-col:hover .section-kicker::before,
+.visit-col:hover .section-kicker::after,
+.visit-col.is-active .section-kicker::before,
+.visit-col.is-active .section-kicker::after,
+.visit-col:focus-visible .section-kicker::before,
+.visit-col:focus-visible .section-kicker::after {
+  background: #fff;
+}
+
+.visit-col:hover .btn-ghost,
+.visit-col.is-active .btn-ghost,
+.visit-col:focus-visible .btn-ghost {
+  color: #fff;
+  border-color: #fff;
+}
 
 .visit-col + .visit-col {
   border-left: 1px solid rgba(255, 255, 255, 0.12);
@@ -1566,22 +1656,22 @@ filter: brightness(0.7);
 
 .visit-col .intro-more { margin-top: 28px; color: var(--gold); }
 
-.visit1{
-  background-image:
-    linear-gradient(rgba(5, 5, 5, 0.392), rgba(5, 5, 5, 0.72)),
-    url("../assets/images/asado.webp");
-      background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.visit-grid:has(.visit-col:hover) .visit-col + .visit-col,
+.visit-grid:has(.visit-col.is-active) .visit-col + .visit-col {
+  border-left-color: transparent;
 }
-.reservation2{
-  background-image:
-    linear-gradient(rgba(5, 5, 5, 0.392), rgba(5, 5, 5, 0.72)),
-    url("../assets/images/asado.webp");
-      background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+
+.site-footer .btn-ghost{
+  width: auto;
+  margin-top: 40px;
 }
+
+.site-footer .btn-ghost:hover{
+  color: #111 !important;
+}
+
+
+
 .footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 22px 0;
@@ -1694,7 +1784,15 @@ filter: brightness(0.7);
   }
   .menu-grid,
   .split { grid-template-columns: 1fr; }
-  .visit-grid { grid-template-columns: 1fr; }
+  .visit-grid,
+  .visit-grid:has(.visit1:hover),
+  .visit-grid:has(.visit1.is-active),
+  .visit-grid:has(.visit1:focus-visible),
+  .visit-grid:has(.reservation2:hover),
+  .visit-grid:has(.reservation2.is-active),
+  .visit-grid:has(.reservation2:focus-visible) {
+    grid-template-columns: 1fr;
+  }
   .visit-col{
     height: 100%;
     border-left: 0;
