@@ -38,13 +38,19 @@
         intro: "Somos la parrilla argentina de Alicante, un sitio para sentarse con los tuyos y disfrutar",
         introP: "Asador La Estancia es un clásico restaurante de carnes argentinas. Con raíces en la tradición, ofrecemos a nuestros clientes un ambiente elegante y vibrante, una cocina galardonada y vinos impecables, haciendo de cada comida con nosotros una experiencia inolvidable.",
         cta1: "Excelencia en cada brasa, elegancia en cada detalle.",
+        cardMeats: "Carnes",
+        cardSea: "Mariscos",
+        cardDesserts: "Postres",
+        cardWine: "Vinos y cócteles",
+        fullMenu: "Ver carta completa",
         kicker: "Recomendado por el chef",
         grill: "Destacados del Menú",
         starters: "Entrantes",
         meats: "Carnes",
-        cta: "Excelencia en cada brasa, elegancia en cada detalle.",
-        beach: "Virgen del Socorro 79, a un paso de la playa.",
-        awardsK: "Coronaciones",
+        visualAlt: "Plato de la casa a la parrilla",
+        cta: "Un rincón exclusivo: descubre una experiencia gastronómica única.",
+        beach: "Virgen del Socorro 79, Alicante. España",
+        awardsK: "Nuestra excelencia reconocida",
         awards: "Premios",
         quote: "La carne en su punto, la sala atenta y la sensación de estar en casa. Eso es La Estancia.",
         cite: "Ubicación · Alicante"
@@ -72,9 +78,9 @@
       ],
       awards: [
         "Insignia de recomendación por opiniones de clientes.",
-        "TripAdvisor. Certificado de excelencia varios años seguidos.",
-        "Más de 2.000 opiniones. La casa que se busca en Alicante.",
-        "Cerca de 900 reseñas. Carnes, sala y volver."
+        "TripAdvisor. Certificado de excelencia por 5 años consecutivos.",
+        "Más de 2.000 opiniones en Google",
+        "Puntuado una de los mejores restaurantes asadores de Alicante"
       ],
       carta: {
         title: "Carta · Asador La Estancia",
@@ -145,10 +151,16 @@
         intro: "We are Alicante’s Argentinian grill, a place to sit with your people and enjoy",
         introP: "Asador La Estancia is a classic Argentinian steakhouse. Rooted in tradition, we offer our guests an elegant, vibrant room, award-winning cooking and impeccable wines, making every meal with us unforgettable.",
         cta1: "Excellence in every ember, elegance in every detail.",
-        kicker: "Featured menu",
-        grill: "The grill",
+        cardMeats: "Meats",
+        cardSea: "Seafood",
+        cardDesserts: "Desserts",
+        cardWine: "Wine & cocktails",
+        fullMenu: "View full menu",
+        kicker: "Recommended by the chef",
+        grill: "Menu highlights",
         starters: "Starters",
         meats: "Meats",
+        visualAlt: "House grill dish",
         cta: "One house. The grill, the wine and the table, in the centre of Alicante.",
         beach: "Virgen del Socorro 79, a step from the beach.",
         awardsK: "Awards",
@@ -167,7 +179,7 @@
         ["Grilled octopus", "With mashed potatoes."],
         ["Criolla empanadas", "Meat or chicken."],
         ["Garlic prawns", "House garlic prawns."],
-        ["Provoleta", "Melted on the grill."],
+        ["Provoleta cheese", "Melted on the grill."],
         ["Beef sweetbreads", "With lemon."],
         ["Andalusian-style squid", "Crispy."],
         ["Argentinian entrecôte", "With french fries."],
@@ -313,8 +325,7 @@
           </div>
         </div>
         <div class="container footer-copy">
-          <span>© Asador La Estancia</span>
-          <span data-i18n="footer.proto">${copy.footer.proto}</span>
+          <span>© Asador La Estancia -  Creado por Macarena Caro</span>
         </div>
       `;
     }
@@ -370,10 +381,19 @@
       setText("[data-copy=intro]", copy.home.intro);
       setText("[data-copy=introP]", copy.home.introP);
       setText("[data-copy=cta1]", copy.home.cta1);
+      setText("[data-copy=cardMeats]", copy.home.cardMeats);
+      setText("[data-copy=cardSea]", copy.home.cardSea);
+      setText("[data-copy=cardDesserts]", copy.home.cardDesserts);
+      setText("[data-copy=cardWine]", copy.home.cardWine);
+      setText("[data-copy=fullMenu]", copy.home.fullMenu);
       setText("[data-copy=kicker]", copy.home.kicker);
       setText("[data-copy=grill]", copy.home.grill);
       setText("[data-copy=starters]", copy.home.starters);
       setText("[data-copy=meats]", copy.home.meats);
+      document.querySelectorAll("[data-copy-alt]").forEach((el) => {
+        const value = copy.home[el.dataset.copyAlt];
+        if (value) el.setAttribute("alt", value);
+      });
       setText("[data-copy=cta]", copy.home.cta);
       setText("[data-copy=beach]", copy.home.beach);
       setText("[data-copy=awardsK]", copy.home.awardsK);
@@ -532,6 +552,21 @@
 
     paintMenu();
 
+    const scrollToMenuHash = () => {
+      const id = location.hash.replace("#", "");
+      const el = id ? document.getElementById(id) : null;
+      if (!el) return;
+      el.scrollIntoView({ behavior: "auto", block: "start" });
+    };
+
+    if (location.hash) {
+      requestAnimationFrame(() => {
+        scrollToMenuHash();
+        setTimeout(scrollToMenuHash, 160);
+      });
+    }
+    window.addEventListener("hashchange", scrollToMenuHash);
+
     tabs?.addEventListener("click", (event) => {
       const btn = event.target.closest("[data-cat]");
       if (!btn) return;
@@ -571,6 +606,8 @@
       ".featured .menu-col",
       ".menu-visual",
       ".cta-band .inner",
+      ".cta-cards",
+      ".cta-actions",
       ".mosaic",
       ".awards",
       ".award-card",

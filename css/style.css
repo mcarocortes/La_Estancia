@@ -368,6 +368,7 @@ button { cursor: pointer; background: none; border: 0; }
 .hero-slides {
   position: absolute;
   inset: 0;
+  background: #000 url("../assets/images/feast.jpg") center / cover no-repeat;
 }
 
 .hero img.hero-bg,
@@ -717,12 +718,23 @@ button { cursor: pointer; background: none; border: 0; }
 }
 
 .menu-visual {
+  position: relative;
   margin: 0;
   min-height: 560px;
   height: 100%;
   overflow: hidden;
   background: #111;
-  border-radius: 280px 280px 280px 280px;
+  border-radius: 280px;
+}
+
+.menu-visual::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--gold);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .menu-visual img {
@@ -840,7 +852,8 @@ button { cursor: pointer; background: none; border: 0; }
   overflow: hidden;
 }
 
-.cta-band img {
+.cta-band > img,
+.cta-menu-hero > img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -851,9 +864,112 @@ button { cursor: pointer; background: none; border: 0; }
 
 .cta-band .inner { position: relative; z-index: 1; padding: 80px 24px; }
 
+.inner p{padding-top: 40px;
+
+}
+
 .cta-band p {
   margin: 0 0 28px;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.cta-menu {
+  overflow: visible;
+  display: block;
+  min-height: 0;
+  background: #000;
+  padding-bottom: 56px;
+}
+
+.cta-menu-hero {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+.cta-menu-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.32);
+}
+
+.cta-menu .inner {
+  position: relative;
+  z-index: 1;
+  padding: 88px 24px 160px;
+}
+
+.cta-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: min(1080px, calc(100% - 32px));
+  margin: -130px auto 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-card {
+  position: relative;
+  flex: 1 1 0;
+  aspect-ratio: 3 / 4;
+  max-width: 240px;
+  overflow: hidden;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.cta-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.45);
+  transform: scale(1.04);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+.cta-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.35);
+}
+
+.cta-card span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 500;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 24px 0;
 }
 
 /* Feature mosaic */
@@ -970,20 +1086,22 @@ button { cursor: pointer; background: none; border: 0; }
   padding: 28px 20px;
   text-align: center;
   display: grid;
-  align-content: center;
+  align-content: top;
   justify-items: center;
   gap: 10px;
 }
 
 .award-card img {
-  height: 72px;
+  height: 150px;
   width: auto;
   object-fit: contain;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .award-mark {
-  width: 72px;
-  height: 72px;
+  width: 150px;
+  height: 150px;
   border: 1px solid var(--gold);
   border-radius: 50%;
   display: grid;
@@ -992,6 +1110,12 @@ button { cursor: pointer; background: none; border: 0; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 13px;
+  overflow: hidden;
+}
+
+.alicante10{
+  background-color: white;
+  padding: 15px;
 }
 
 .award-card strong {
@@ -1002,6 +1126,31 @@ button { cursor: pointer; background: none; border: 0; }
 
 .award-card span { color: var(--muted); font-size: 14px; }
 
+.award-elfsight {
+  width: 102px;
+  height: 102px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.award-elfsight > [class*="elfsight-app"] {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  min-width: 94px;
+}
+
+.awardLogo{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
 /* Quote */
 .quote-block {
   padding: 90px 24px;
@@ -1096,7 +1245,10 @@ button { cursor: pointer; background: none; border: 0; }
   margin-top: 10px;
 }
 
-.menu-section { margin: 0 0 64px; }
+.menu-section {
+  margin: 0 0 64px;
+  scroll-margin-top: 160px;
+}
 
 .menu-section h2 {
   margin: 0 0 28px;
@@ -1324,6 +1476,12 @@ button { cursor: pointer; background: none; border: 0; }
     gap: 36px 40px;
   }
   .menu-visual { display: none; }
+  .cta-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: -80px;
+  }
+  .cta-card { max-width: none; }
 }
 
 @media (max-width: 760px) {
@@ -1346,6 +1504,8 @@ button { cursor: pointer; background: none; border: 0; }
   .intro-stack { height: 280px; }
   .intro { padding: 56px 16px; }
   .lookbook-track { animation-duration: 22s; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn-ghost { width: min(260px, 100%); }
 
   .mosaic,
   .gallery-grid { grid-template-columns: 1fr; }
