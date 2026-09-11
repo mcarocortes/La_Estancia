@@ -17,31 +17,43 @@
 
   <main id="contenido">
     <section class="page-hero">
-      <img class="hero-bg" src="assets/images/gallery/ribeye.jpg" alt="Corte a la parrilla">
+      <img class="hero-bg" src="assets/images/gallery/meat12.png" alt="Parrillada de La Estancia">
       <div class="page-hero-content">
         <h1 data-copy="h1">Los platos</h1>
-        <p data-copy="lead">Brasa, mar y mesa. Una galería para ver lo que llega al plato.</p>
+        <p data-copy="lead">Brasa, mar, verdura y mesa. La Estancia, en imágenes.</p>
       </div>
     </section>
 
-    <section class="gallery-grid">
-      <figure class="wide"><img src="assets/images/tomahawk.jpg" alt="Tomahawk"></figure>
-      <figure><img src="assets/images/gallery/prawns.jpg" alt="Gambas"></figure>
-      <figure><img src="assets/images/gallery/plated.jpg" alt="Plato de la casa"></figure>
-      <figure><img src="assets/images/feast.jpg" alt="Parrillada"></figure>
-      <figure class="wide"><img src="assets/images/gallery/seafood.jpg" alt="Parrillada de mariscos"></figure>
-      <figure><img src="assets/images/gallery/ribs.jpg" alt="Costillas"></figure>
-      <figure><img src="assets/images/gallery/cuttlefish.jpg" alt="Sepia"></figure>
-      <figure><img src="assets/images/gallery/chimichurri.jpg" alt="Chimichurri"></figure>
-      <figure class="wide"><img src="assets/images/gallery/dining.jpg" alt="Sala de La Estancia"></figure>
-      <figure><img src="assets/images/panqueques.jpg" alt="Panqueque"></figure>
-      <figure><img src="assets/images/gallery/wine.jpg" alt="Vino"></figure>
-      <figure><img src="assets/images/gallery/ember.jpg" alt="Brasa"></figure>
-      <figure><img src="assets/images/interior.jpg" alt="Interior"></figure>
+    <section class="gallery-page">
+      <div class="container">
+        <div class="menu-tools">
+          <div class="menu-tabs" data-tabs-scroller>
+            <button type="button" class="menu-tabs-arrow is-start" data-tabs-prev aria-label="Secciones anteriores">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="tabs" data-tabs></div>
+            <button type="button" class="menu-tabs-arrow is-end" data-tabs-next aria-label="Más secciones">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div data-gallery></div>
+      </div>
     </section>
   </main>
 
+  <div class="gallery-lite" data-gallery-lite hidden>
+    <button type="button" class="gallery-lite-close" data-gallery-close aria-label="Cerrar"></button>
+    <button type="button" class="gallery-lite-nav is-prev" data-gallery-prev aria-label="Anterior"></button>
+    <figure class="gallery-lite-stage">
+      <img data-gallery-image alt="">
+      <figcaption data-gallery-caption></figcaption>
+    </figure>
+    <button type="button" class="gallery-lite-nav is-next" data-gallery-next aria-label="Siguiente"></button>
+  </div>
+
   <footer class="site-footer" data-footer></footer>
+  <script src="js/gallery.js"></script>
   <script src="js/site.js"></script>
 </body>
 </html>

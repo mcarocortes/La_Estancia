@@ -29,7 +29,7 @@
         gallery: "Galería de platos",
         qr: "Carta QR",
         hours: "Horario",
-        hoursText: "Lu–Mi y Ju: 19:00 – 00:00<br>Ma: Cerrado<br>Vi–Sa–Do: 13:30–16:00 / 19:00 – 00:00",
+        hoursText: "Lu–Mi y Ju: 19:00 – 23:30<br>Ma: Cerrado<br>Vi–Sa–Do: 13:30–16:00 / 19:00 – 23:30",
         contact: "Contacto",
         proto: "Prototipo de rediseño · WordPress en el siguiente paso",
         find: "Encuentra el restaurante",
@@ -118,7 +118,11 @@
       galeria: {
         title: "Galería · Asador La Estancia",
         h1: "Los platos",
-        lead: "Brasa, mar y mesa. Una galería para ver lo que llega al plato."
+        lead: "Brasa, mar, verdura y mesa. La Estancia, en imágenes.",
+        all: "Toda la galería",
+        close: "Cerrar",
+        prev: "Anterior",
+        next: "Siguiente"
       },
       reservas: {
         title: "Reservar · Asador La Estancia",
@@ -128,7 +132,11 @@
         h2: "Tu mesa, a la hora de la brasa.",
         notice: "La reserva se anula automáticamente al existir un retraso de 15 minutos respecto a la hora programada.",
         d1: "Lunes, miércoles y jueves",
+        dClosed: "Martes",
         d2: "Viernes a domingo",
+        t1: "19:00 – 23:30",
+        tClosed: "Cerrado",
+        t2: "13:30–16:00 / 19:00 – 23:30",
         box: "Hueco reservado para el calendario de WordPress. No se toca el historial de reservas.",
         boxP: "Cuando pases este diseño a WordPress, aquí irá el shortcode del plugin que ya usas. El formulario (nombre, personas, hora, teléfono) se mantiene."
       },
@@ -140,7 +148,11 @@
         h2: "Cómo llegar.",
         phone: "Teléfono",
         d1: "Lu–Mi y Ju",
-        d2: "Vi–Sa–Do"
+        dClosed: "Ma",
+        d2: "Vi–Sa–Do",
+        t1: "19:00 – 23:30",
+        tClosed: "Cerrado",
+        t2: "13:30–16:00 / 19:00 – 23:30"
       }
     },
     en: {
@@ -162,7 +174,7 @@
         gallery: "Dish gallery",
         qr: "QR menu",
         hours: "Hours",
-        hoursText: "Mon–Wed & Thu: 19:00 – 00:00<br>Tues: Closed<br>Fri–Sun: 13:30–16:00 / 19:00 – 00:00",
+        hoursText: "Mon–Wed & Thu: 19:00 – 23:30<br>Tue: Closed<br>Fri–Sun: 13:30–16:00 / 19:00 – 23:30",
         contact: "Contact",
         proto: "Redesign prototype · WordPress comes next",
         find: "Find the restaurant",
@@ -251,7 +263,11 @@
       galeria: {
         title: "Gallery · Asador La Estancia",
         h1: "The dishes",
-        lead: "Fire, sea and table. A gallery of what reaches the plate."
+        lead: "Fire, sea, greens and table. La Estancia, in pictures.",
+        all: "Full gallery",
+        close: "Close",
+        prev: "Previous",
+        next: "Next"
       },
       reservas: {
         title: "Book · Asador La Estancia",
@@ -261,7 +277,11 @@
         h2: "Your table, at grill time.",
         notice: "Reservations are cancelled automatically after a 15-minute delay.",
         d1: "Monday, Wednesday and Thursday",
+        dClosed: "Tuesday",
         d2: "Friday to Sunday",
+        t1: "19:00 – 23:30",
+        tClosed: "Closed",
+        t2: "13:30–16:00 / 19:00 – 23:30",
         box: "Reserved for the WordPress calendar. Existing bookings stay untouched.",
         boxP: "When this design moves to WordPress, the same plugin shortcode goes here. Name, party size, time and phone stay."
       },
@@ -273,7 +293,11 @@
         h2: "How to find us.",
         phone: "Phone",
         d1: "Mon–Wed & Thu",
-        d2: "Fri–Sun"
+        dClosed: "Tue",
+        d2: "Fri–Sun",
+        t1: "19:00 – 23:30",
+        tClosed: "Closed",
+        t2: "13:30–16:00 / 19:00 – 23:30"
       }
     }
   };
@@ -288,7 +312,12 @@
 
   let lang = localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "es";
   let menuFilter = "all";
+  let galleryFilter = "all";
+  let galleryView = [];
+  let galleryLock = false;
+  let galleryObserver = null;
   let paintMenu = () => {};
+  let paintGallery = () => {};
 
   function t() { return I18N[lang]; }
 
@@ -486,6 +515,11 @@
       document.title = copy.galeria.title;
       setText("[data-copy=h1]", copy.galeria.h1);
       setText("[data-copy=lead]", copy.galeria.lead);
+      const lite = document.querySelector("[data-gallery-lite]");
+      lite?.querySelector("[data-gallery-close]")?.setAttribute("aria-label", copy.galeria.close);
+      lite?.querySelector("[data-gallery-prev]")?.setAttribute("aria-label", copy.galeria.prev);
+      lite?.querySelector("[data-gallery-next]")?.setAttribute("aria-label", copy.galeria.next);
+      labelTabArrows();
     }
 
     if (page === "reservas") {
@@ -496,7 +530,11 @@
       setText("[data-copy=h2]", copy.reservas.h2);
       setText("[data-copy=notice]", copy.reservas.notice);
       setText("[data-copy=d1]", copy.reservas.d1);
+      setText("[data-copy=dClosed]", copy.reservas.dClosed);
       setText("[data-copy=d2]", copy.reservas.d2);
+      setText("[data-copy=t1]", copy.reservas.t1);
+      setText("[data-copy=tClosed]", copy.reservas.tClosed);
+      setText("[data-copy=t2]", copy.reservas.t2);
       setText("[data-copy=box]", copy.reservas.box);
       setText("[data-copy=boxP]", copy.reservas.boxP);
     }
@@ -509,7 +547,11 @@
       setText("[data-copy=h2]", copy.contacto.h2);
       setText("[data-copy=phone]", copy.contacto.phone);
       setText("[data-copy=d1]", copy.contacto.d1);
+      setText("[data-copy=dClosed]", copy.contacto.dClosed);
       setText("[data-copy=d2]", copy.contacto.d2);
+      setText("[data-copy=t1]", copy.contacto.t1);
+      setText("[data-copy=tClosed]", copy.contacto.tClosed);
+      setText("[data-copy=t2]", copy.contacto.t2);
     }
   }
 
@@ -527,6 +569,7 @@
     mountChrome();
     applyPageCopy();
     paintMenu();
+    paintGallery();
   }
 
   function bindChrome() {
@@ -603,11 +646,11 @@
   }
 
   function labelTabArrows() {
-    const copy = t().carta;
+    const pack = document.body.dataset.page === "galeria" ? t().galeria : t().carta;
     const prev = document.querySelector("[data-tabs-prev]");
     const next = document.querySelector("[data-tabs-next]");
-    if (prev) prev.setAttribute("aria-label", copy.tabsPrev);
-    if (next) next.setAttribute("aria-label", copy.tabsNext);
+    if (prev) prev.setAttribute("aria-label", pack.tabsPrev || pack.prev);
+    if (next) next.setAttribute("aria-label", pack.tabsNext || pack.next);
   }
 
   function updateTabsOverflow() {
@@ -712,6 +755,168 @@
     });
   }
 
+  function galleryCardHTML(item, index) {
+    const caption = item[lang] || item.es;
+    const mods = `${item.wide ? " is-wide" : ""}${item.tall ? " is-tall" : ""}`;
+    return `
+      <button type="button" class="gallery-card${mods}" data-gallery-open="${index}">
+        <img src="${item.src}" alt="${caption}" loading="lazy">
+        <span class="gallery-card-meta"><span>${caption}</span></span>
+      </button>
+    `;
+  }
+
+  function setGalleryTab(id) {
+    galleryFilter = id;
+    document.querySelectorAll("[data-gal]").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.gal === id);
+    });
+  }
+
+  function scrollToGallerySection(id) {
+    const target = id === "all"
+      ? document.querySelector(".gallery-page")
+      : document.getElementById(`gal-${id}`);
+    if (!target) return;
+    galleryLock = true;
+    setGalleryTab(id);
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    revealActiveTab();
+    window.clearTimeout(scrollToGallerySection.timer);
+    scrollToGallerySection.timer = window.setTimeout(() => {
+      galleryLock = false;
+    }, 900);
+  }
+
+  function observeGallerySections() {
+    galleryObserver?.disconnect();
+    const blocks = document.querySelectorAll(".gallery-block");
+    if (!blocks.length) return;
+    galleryObserver = new IntersectionObserver((entries) => {
+      if (galleryLock) return;
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible?.target?.id) return;
+      const id = visible.target.id.replace("gal-", "");
+      if (id && id !== galleryFilter) {
+        setGalleryTab(id);
+        revealActiveTab();
+      }
+    }, { rootMargin: "-32% 0px -48% 0px", threshold: [0.12, 0.35, 0.6] });
+    blocks.forEach((block) => galleryObserver.observe(block));
+  }
+
+  function renderGallery() {
+    const root = document.querySelector("[data-gallery]");
+    const tabs = document.querySelector("[data-tabs]");
+    if (!root || !window.GALLERY_DATA) return;
+
+    const cats = window.GALLERY_DATA.categories;
+    const items = window.GALLERY_DATA.items;
+
+    paintGallery = () => {
+      if (tabs) {
+        const x = tabs.scrollLeft;
+        tabs.innerHTML = `<button type="button" data-gal="all" class="${galleryFilter === "all" ? "is-active" : ""}">${t().galeria.all}</button>` +
+          cats.map((cat) => `<button type="button" data-gal="${cat.id}" class="${galleryFilter === cat.id ? "is-active" : ""}">${cat[lang]}</button>`).join("");
+        tabs.scrollLeft = x;
+        requestAnimationFrame(() => {
+          revealActiveTab();
+          updateTabsOverflow();
+          syncChromeMetrics();
+        });
+      }
+
+      const visibleCats = cats;
+      galleryView = [];
+      root.innerHTML = visibleCats.map((cat) => {
+        const group = items.filter((item) => item.cat === cat.id);
+        const start = galleryView.length;
+        galleryView.push(...group);
+        const board = group.map((item, i) => galleryCardHTML(item, start + i)).join("");
+        return `
+          <section class="gallery-block" id="gal-${cat.id}">
+            <header class="gallery-block-head">
+              <p>${String(cats.indexOf(cat) + 1).padStart(2, "0")}</p>
+              <h2>${cat[lang]}</h2>
+            </header>
+            <div class="gallery-board">${board}</div>
+          </section>
+        `;
+      }).join("");
+      observeGallerySections();
+    };
+
+    paintGallery();
+    bindTabsScroller();
+    bindGalleryLite();
+
+    tabs?.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-gal]");
+      if (!btn) return;
+      closeGalleryLite();
+      scrollToGallerySection(btn.dataset.gal);
+    });
+
+    root.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-gallery-open]");
+      if (!btn) return;
+      openGalleryLite(Number(btn.dataset.galleryOpen));
+    });
+  }
+
+  function bindGalleryLite() {
+    const lite = document.querySelector("[data-gallery-lite]");
+    if (!lite || lite.dataset.bound === "1") return;
+    lite.dataset.bound = "1";
+    lite.querySelector("[data-gallery-close]")?.addEventListener("click", closeGalleryLite);
+    lite.querySelector("[data-gallery-prev]")?.addEventListener("click", () => stepGalleryLite(-1));
+    lite.querySelector("[data-gallery-next]")?.addEventListener("click", () => stepGalleryLite(1));
+    lite.addEventListener("click", (event) => {
+      if (event.target === lite) closeGalleryLite();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (lite.hidden) return;
+      if (event.key === "Escape") closeGalleryLite();
+      if (event.key === "ArrowLeft") stepGalleryLite(-1);
+      if (event.key === "ArrowRight") stepGalleryLite(1);
+    });
+  }
+
+  function openGalleryLite(index) {
+    const lite = document.querySelector("[data-gallery-lite]");
+    if (!lite || !galleryView[index]) return;
+    lite.dataset.index = String(index);
+    const item = galleryView[index];
+    const caption = item[lang] || item.es;
+    const image = lite.querySelector("[data-gallery-image]");
+    const text = lite.querySelector("[data-gallery-caption]");
+    if (image) {
+      image.src = item.src;
+      image.alt = caption;
+    }
+    if (text) text.textContent = caption;
+    lite.hidden = false;
+    document.body.classList.add("is-lite-open");
+  }
+
+  function stepGalleryLite(dir) {
+    if (!galleryView.length) return;
+    const lite = document.querySelector("[data-gallery-lite]");
+    const current = Number(lite?.dataset.index || 0);
+    const next = (current + dir + galleryView.length) % galleryView.length;
+    openGalleryLite(next);
+  }
+
+  function closeGalleryLite() {
+    const lite = document.querySelector("[data-gallery-lite]");
+    if (!lite) return;
+    lite.hidden = true;
+    document.body.classList.remove("is-lite-open");
+  }
+
   function startHeroSlides() {
     const slides = document.querySelectorAll("[data-hero-slides] .hero-bg");
     if (slides.length < 2) return;
@@ -755,7 +960,7 @@
       ".booking-box",
       ".map-wrap",
       ".menu-page .container > :not(.menu-tools)",
-      ".gallery-grid",
+      ".gallery-block",
       ".page-hero-content"
     ].join(","));
 
@@ -807,6 +1012,7 @@
   mountChrome();
   applyPageCopy();
   renderFullMenu();
+  renderGallery();
   bindChrome();
   startHeroSlides();
   startLookbook();

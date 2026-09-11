@@ -1,17 +1,5 @@
 {
-  "restaurant": {
-    "name": "Asador La Estancia",
-    "tagline": "Parrilla argentina en Alicante",
-    "phone": "+34 966 35 03 21",
-    "phoneHref": "tel:+34966350321",
-    "whatsapp": "https://wa.me/34966350321",
-    "address": "Virgen del Socorro 79, Alicante",
-    "mapsQuery": "Virgen del Socorro 79, Alicante",
-    "hours": [
-      { "days": "Lunes a jueves", "time": "19:00 – 00:00" },
-      { "days": "Viernes a domingo", "time": "13:30 – 16:00 / 19:00 – 00:00" }
-    ]
-  },
+
   "categories": [
     {
       "id": "entrantes",

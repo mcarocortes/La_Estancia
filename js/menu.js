@@ -8,8 +8,9 @@ window.MENU_DATA = {
     "address": "Virgen del Socorro 79, Alicante",
     "mapsQuery": "Virgen del Socorro 79, Alicante",
     "hours": [
-      { "days": "Lunes a jueves", "time": "19:00 – 00:00" },
-      { "days": "Viernes a domingo", "time": "13:30 – 16:00 / 19:00 – 00:00" }
+      { "days": "Lunes, miércoles y jueves", "time": "19:00 – 23:30" },
+      { "days": "Martes", "time": "Cerrado" },
+      { "days": "Viernes a domingo", "time": "13:30 – 16:00 / 19:00 – 23:30" }
     ]
   },
   "categories": [
