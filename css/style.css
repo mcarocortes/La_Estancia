@@ -48,6 +48,7 @@ html { scroll-behavior: smooth; }
   .intro-photo img { transform: none; transition: none; }
   .lookbook-track { animation: none; }
   .lookbook-rail { overflow-x: auto; mask-image: none; }
+  .tabs { scroll-behavior: auto; }
   .lookbook-set[aria-hidden="true"] { display: none; }
   .header-nav a::after,
   .nav-drawer a::after,
@@ -1334,19 +1335,57 @@ filter: brightness(0.7);
 .menu-page { padding: 56px 0 100px; }
 
 .menu-tools {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 25;
   display: flex;
   justify-content: space-between;
   gap: 16px;
   align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin: 0 -8px 28px;
+  padding: 10px 8px 12px;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 24px -20px rgba(0, 0, 0, 0.8);
+}
+
+.menu-tabs {
+  position: relative;
+  min-width: 0;
+  width: 100%;
 }
 
 .tabs {
   display: flex;
   gap: 8px;
-  overflow: auto;
-  padding-bottom: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  padding: 2px 2px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  scroll-behavior: smooth;
+  mask-image: linear-gradient(90deg, #000, #000);
+  -webkit-mask-image: linear-gradient(90deg, #000, #000);
+}
+
+.tabs::-webkit-scrollbar { display: none; }
+
+.menu-tabs[data-overflow-start] .tabs {
+  mask-image: linear-gradient(90deg, transparent, #000 36px, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px, #000 100%);
+}
+
+.menu-tabs[data-overflow-end] .tabs {
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 36px), transparent);
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 36px), transparent);
+}
+
+.menu-tabs[data-overflow-start][data-overflow-end] .tabs {
+  mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent);
 }
 
 .tabs button,
@@ -1358,12 +1397,54 @@ filter: brightness(0.7);
   text-transform: uppercase;
   font-size: 13px;
   color: var(--muted);
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .tabs button.is-active,
 .lang-toggle:not(.header-lang) button.is-active {
   border-color: #fff;
   color: #fff;
+}
+
+.menu-tabs-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(12, 12, 12, 0.94);
+  color: var(--gold);
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-tabs-arrow.is-start { left: 0; }
+.menu-tabs-arrow.is-end { right: 0; }
+
+.menu-tabs[data-overflow-start] .menu-tabs-arrow.is-start,
+.menu-tabs[data-overflow-end] .menu-tabs-arrow.is-end {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-tabs-arrow:hover,
+.menu-tabs-arrow:focus-visible {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+.menu-tabs-arrow svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .legend {
@@ -1383,7 +1464,7 @@ filter: brightness(0.7);
 
 .menu-section {
   margin: 0 0 64px;
-  scroll-margin-top: 160px;
+  scroll-margin-top: calc(var(--header-h) + var(--tabs-h, 64px) + 8px);
 }
 
 .menu-section h2 {
@@ -1411,12 +1492,70 @@ filter: brightness(0.7);
   gap: 8px 56px;
 }
 
-.menu-section h3 {
+.menu-section h3,
+.menu-group-title {
   grid-column: 1 / -1;
-  margin: 18px 0 8px;
-  font-family: var(--serif);
-  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 14px;
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 12px;
   font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(196, 165, 116, 0.1);
+  border: 1px solid rgba(196, 165, 116, 0.24);
+}
+
+.menu-grid > h3:first-child,
+.menu-grid > .menu-group-title:first-child {
+  margin-top: 0;
+}
+
+.menu-group-title::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(196, 165, 116, 0.2);
+}
+
+.menu-group-title[data-group="Tinto argentino"]::before,
+.menu-group-title[data-group="Rioja"]::before,
+.menu-group-title[data-group="Ribera del Duero"]::before,
+.menu-group-title[data-group="Alicante"]::before {
+  background: #9a3240;
+  box-shadow: 0 0 0 3px rgba(154, 50, 64, 0.28);
+}
+
+.menu-group-title[data-group="Blancos"]::before {
+  background: #e4d4a4;
+  box-shadow: 0 0 0 3px rgba(228, 212, 164, 0.28);
+}
+
+.menu-group-title[data-group="Rosado"]::before {
+  background: #d9899a;
+  box-shadow: 0 0 0 3px rgba(217, 137, 154, 0.28);
+}
+
+.menu-group-title[data-group="Cava y cócteles"]::before {
+  background: #c9b07a;
+  box-shadow: 0 0 0 3px rgba(201, 176, 122, 0.28);
+}
+
+.menu-group-title[data-group="Cervezas"]::before {
+  background: #c47a2c;
+  box-shadow: 0 0 0 3px rgba(196, 122, 44, 0.28);
+}
+
+.menu-group-title[data-group="Cafés"]::before {
+  background: #6b4330;
+  box-shadow: 0 0 0 3px rgba(107, 67, 48, 0.28);
 }
 
 /* Contact / booking */
@@ -1687,6 +1826,7 @@ filter: brightness(0.7);
 .footer-socials {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
 }
 
@@ -1780,7 +1920,7 @@ filter: brightness(0.7);
   }
 
   .site-footer{
-    height: 80vh;
+    height: 90vh;
   }
   .menu-grid,
   .split { grid-template-columns: 1fr; }
@@ -1881,4 +2021,11 @@ filter: brightness(0.7);
   .gallery-grid img,
   .gallery-grid .wide img { height: 260px; }
 
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    grid-template-columns: 1fr auto;
+  }
+  .brand { display: none; }
 }

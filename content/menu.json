@@ -39,10 +39,10 @@
       "es": "Ensaladas",
       "en": "Salads",
       "items": [
-        { "es": "Mixta", "en": "Mixed", "note": "Lechuga, tomate, cebolla", "price": "12.00" },
-        { "es": "De ventresca", "en": "Tuna belly", "note": "Tomate raff y ventresca de atún", "price": "17.00" },
-        { "es": "Caprese", "en": "Caprese", "note": "Tomate, mozzarella y albahaca", "price": "16.00" },
-        { "es": "Ensalada mango & cabra deluxe", "en": "Mango & goat cheese deluxe salad", "note": "Mango, queso de cabra, cherry y aliño de mostaza, miel y eneldo", "price": "17.00" },
+        { "es": "Mixta", "en": "Mixed", "note": { "es": "Lechuga, tomate, cebolla", "en": "Lettuce, tomato, onion" }, "price": "12.00" },
+        { "es": "De ventresca", "en": "Tuna belly", "note": { "es": "Tomate raff y ventresca de atún", "en": "Raf tomato and tuna belly" }, "price": "17.00" },
+        { "es": "Caprese", "en": "Caprese", "note": { "es": "Tomate, mozzarella y albahaca", "en": "Tomato, mozzarella and basil" }, "price": "16.00" },
+        { "es": "Ensalada mango & cabra deluxe", "en": "Mango & goat cheese deluxe salad", "note": { "es": "Mango, queso de cabra, cherry y aliño de mostaza, miel y eneldo", "en": "Mango, goat cheese, cherry tomatoes and mustard, honey and dill dressing" }, "price": "17.00" },
         { "es": "Ensalada sorpresa La Estancia", "en": "Surprise salad La Estancia", "price": "20.00" }
       ]
     },
@@ -55,18 +55,18 @@
         { "es": "Costillas de cerdo a la barbacoa con patatas fritas", "en": "Barbecue pork ribs with french fries", "price": "28.50" },
         { "es": "Entraña con patatas fritas", "en": "Outside skirt steak with french fries", "price": "27.50" },
         { "es": "Chuletas de cordero con patatas fritas", "en": "Lamb chops with french fries", "price": "29.50" },
-        { "es": "Carillera de cerdo ibérico sobre puré de patatas trufado", "en": "Iberian pork cheek on truffled mashed potatoes", "price": "27.00" },
+        { "es": "Carrillera de cerdo ibérico sobre puré de patatas trufado", "en": "Iberian pork cheek on truffled mashed potatoes", "price": "27.00" },
         { "es": "Entrecot argentino con patatas fritas", "en": "Argentinian entrecôte with french fries", "price": "30.00" },
         { "es": "Solomillo de ternera con patatas fritas", "en": "Beef tenderloin with french fries", "price": "36.50" },
-        { "es": "Hamburguesa La Estancia con patatas fritas", "en": "Burger La Estancia with french fries", "note": "Angus, doble queso, pepinillos, huevo, lechuga, tomate y bacon", "price": "19.00" },
+        { "es": "Hamburguesa La Estancia con patatas fritas", "en": "Burger La Estancia with french fries", "note": { "es": "Angus, doble queso, pepinillos, huevo, lechuga, tomate y bacon", "en": "Angus, double cheese, pickles, egg, lettuce, tomato and bacon" }, "price": "19.00" },
         { "es": "Chuletón de Ávila 500 g con patatas fritas", "en": "Spanish ribeye 500 g with french fries", "price": "36.00" },
-        { "es": "Chuletón de ternera 1 kg / para 2 personas", "en": "Spanish ribeye 1 kg / for 2 people", "note": "Incluye ensalada y patatas fritas", "price": "72.00" },
-        { "es": "Costillar de ternera a baja temperatura", "en": "Slow-cooked beef ribs", "note": "Con puré de patata y boniato y verduritas", "price": "28.00" },
-        { "es": "Milanesa napolitana con patatas fritas", "en": "Milanesa with sauce and mozzarella", "note": "Pollo o ternera", "price": "26.00" },
+        { "es": "Chuletón de ternera 1 kg / para 2 personas", "en": "Spanish ribeye 1 kg / for 2 people", "note": { "es": "Incluye ensalada y patatas fritas", "en": "Includes salad and french fries" }, "price": "72.00" },
+        { "es": "Costillar de ternera a baja temperatura", "en": "Slow-cooked beef ribs", "note": { "es": "Con puré de patata y boniato y verduritas", "en": "With potato and sweet potato mash and vegetables" }, "price": "28.00" },
+        { "es": "Milanesa napolitana con patatas fritas", "en": "Milanesa with sauce and mozzarella", "note": { "es": "Pollo o ternera", "en": "Chicken or beef" }, "price": "26.00" },
         { "es": "Milanesa con huevo", "en": "Milanesa with fried egg", "price": "22.50" },
-        { "es": "Parrillada de carnes con patatas fritas / para 2 personas", "en": "Grilled meats with french fries / for 2 people", "note": "Pollo, chorizo, costillas de cerdo, tira de asado, entraña y entrecot", "price": "65.00" },
-        { "es": "Filete tomahawk 1,1 kg / para 2 personas", "en": "Tomahawk steak 1.1 kg / for 2 people", "note": "Incluye ensalada, patatas fritas y botella de vino de la casa", "price": "93.00" },
-        { "es": "T-Bone 850 g", "en": "T-Bone steak 850 g", "note": "Incluye patatas fritas", "price": "60.00" }
+        { "es": "Parrillada de carnes con patatas fritas / para 2 personas", "en": "Grilled meats with french fries / for 2 people", "note": { "es": "Pollo, chorizo, costillas de cerdo, tira de asado, entraña y entrecot", "en": "Chicken, chorizo, pork ribs, short rib, skirt steak and entrecôte" }, "price": "65.00" },
+        { "es": "Filete tomahawk 1,1 kg / para 2 personas", "en": "Tomahawk steak 1.1 kg / for 2 people", "note": { "es": "Incluye ensalada, patatas fritas y botella de vino de la casa", "en": "Includes salad, french fries and a bottle of house wine" }, "price": "93.00" },
+        { "es": "T-Bone 850 g", "en": "T-Bone steak 850 g", "note": { "es": "Incluye patatas fritas", "en": "Includes french fries" }, "price": "60.00" }
       ]
     },
     {
@@ -77,7 +77,7 @@
         { "es": "Lubina con patatas fritas", "en": "Sea bass", "price": "30.00" },
         { "es": "Dorada", "en": "Gilt-head bream", "price": "30.00" },
         { "es": "Salmón con puré de patatas y salsa de mariscos", "en": "Salmon with mashed potatoes and seafood sauce", "price": "26.50" },
-        { "es": "Parrillada de mariscos / para 2 personas", "en": "Grilled seafood / for 2 people", "note": "Gambón, mejillón, cigalas, lubina, salmón y sepia + botella de vino blanco de la casa", "price": "90.00" }
+        { "es": "Parrillada de mariscos / para 2 personas", "en": "Grilled seafood / for 2 people", "note": { "es": "Gambón, mejillón, cigalas, lubina, salmón y sepia + botella de vino blanco de la casa", "en": "King prawn, mussel, langoustines, sea bass, salmon and cuttlefish + a bottle of house white wine" }, "price": "90.00" }
       ]
     },
     {
@@ -85,8 +85,8 @@
       "es": "Menú infantil",
       "en": "Kids menu",
       "items": [
-        { "es": "Milanesa con patatas fritas", "en": "Milanesa with french fries", "note": "Incluye bebida y postre", "price": "11.00" },
-        { "es": "Hamburguesa con patatas fritas", "en": "Burger with french fries", "note": "Incluye bebida y postre", "price": "11.00" }
+        { "es": "Milanesa con patatas fritas", "en": "Milanesa with french fries", "note": { "es": "Incluye bebida y postre", "en": "Includes drink and dessert" }, "price": "11.00" },
+        { "es": "Hamburguesa con patatas fritas", "en": "Burger with french fries", "note": { "es": "Incluye bebida y postre", "en": "Includes drink and dessert" }, "price": "11.00" }
       ]
     },
     {

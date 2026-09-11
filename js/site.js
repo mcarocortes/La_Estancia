@@ -3,7 +3,10 @@
   const ICONS = {
     wa: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
     ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>',
-    fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z"/></svg>'
+    fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z"/></svg>',
+    ta: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.006 4.295c-3.2 0-6.142 1.3-8.268 3.408L0 11.44l3.738 3.738 2.32-2.32A7.246 7.246 0 0112 9.668a7.246 7.246 0 015.942 3.19l2.32 2.32L24 11.44l-3.738-3.737c-2.126-2.108-5.063-3.408-8.256-3.408zM12 8.16a4.877 4.877 0 00-4.87 4.87A4.877 4.877 0 0012 17.9a4.877 4.877 0 004.87-4.87A4.877 4.877 0 0012 8.16zm-7.995.84a2.926 2.926 0 100 5.852 2.926 2.926 0 000-5.852zm15.99 0a2.926 2.926 0 100 5.852 2.926 2.926 0 000-5.852zM12 10.148a2.926 2.926 0 110 5.852 2.926 2.926 0 010-5.852z"/></svg>',
+    gplus: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 11v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42S5.61 7.58 8 7.58c1.36 0 2.27.58 2.79 1.08l1.9-1.83C11.47 5.69 9.89 5 8 5 4.13 5 1 8.13 1 12s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H8zm15 0h-2V9h-2v2h-2v2h2v2h2v-2h2v-2z"/></svg>',
+    yt: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
   };
 
   const I18N = {
@@ -107,8 +110,10 @@
         h1: "La carta",
         lead: "Carnes, mar, vinos y postres. En español e inglés, con alérgenos en cada plato.",
         all: "Toda la carta",
-        legend: "<strong>Alérgenos.</strong> Códigos según el reglamento UE. Orientativo: confirma siempre en sala si viajas con alergia.",
-        table: "Mesa"
+        legend: "<strong>Alérgenos.</strong> Códigos según el reglamento UE. Orientativo: confirmar siempre en sala información de alérgenos.",
+        table: "Mesa",
+        tabsPrev: "Secciones anteriores",
+        tabsNext: "Más secciones"
       },
       galeria: {
         title: "Galería · Asador La Estancia",
@@ -238,8 +243,10 @@
         h1: "The menu",
         lead: "Meat, sea, wine and dessert. Spanish and English, with allergens on every dish.",
         all: "Full menu",
-        legend: "<strong>Allergens.</strong> EU codes. Indicative: always confirm with the room if you travel with an allergy.",
-        table: "Table"
+        legend: "<strong>Allergens.</strong> EU codes. Indicative: always confirm allergen information with staff.",
+        table: "Table",
+        tabsPrev: "Previous sections",
+        tabsNext: "More sections"
       },
       galeria: {
         title: "Gallery · Asador La Estancia",
@@ -361,6 +368,9 @@
               <a href="https://www.facebook.com/AsadorLaEstancia79" target="_blank" rel="noopener" aria-label="Facebook">${ICONS.fb}</a>
               <a href="https://www.instagram.com/asadorlaestancia/" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.ig}</a>
               <a href="https://wa.me/34966350321" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.wa}</a>
+              <a href="https://www.tripadvisor.es/Restaurant_Review-g1064230-d4551310-Reviews-Asador_La_Estancia-Alicante_Costa_Blanca_Province_of_Alicante_Valencian_Communit.html" target="_blank" rel="noopener" aria-label="TripAdvisor">${ICONS.ta}</a>
+              <a href="https://www.google.com/search?q=asador+la+estancia" target="_blank" rel="noopener" aria-label="Google">${ICONS.gplus}</a>
+              <a href="https://www.youtube.com/watch?v=pGrHOlknn98" target="_blank" rel="noopener" aria-label="YouTube">${ICONS.yt}</a>
             </div>
 
             <p class="footer-legal">© Asador La Estancia · Creado por Macarena Caro</p>
@@ -383,13 +393,15 @@
     if (!document.querySelector(".wa")) {
       const wa = document.createElement("a");
       wa.className = "wa";
-      wa.href = "https://wa.me/34966350321";
+      wa.href = "https://wa.me/34633034175";
       wa.target = "_blank";
       wa.rel = "noopener";
       wa.setAttribute("aria-label", "WhatsApp");
       wa.innerHTML = ICONS.wa;
       document.body.appendChild(wa);
     }
+
+    syncChromeMetrics();
   }
 
   function applyPageCopy() {
@@ -467,6 +479,7 @@
       setText("[data-copy=lead]", copy.carta.lead);
       setHtml("[data-copy=legend]", copy.carta.legend);
       setText("[data-copy=table]", copy.carta.table);
+      labelTabArrows();
     }
 
     if (page === "galeria") {
@@ -543,9 +556,14 @@
 
     const header = document.querySelector("[data-header]");
     const solidAt = Number(document.body.dataset.solid || 80);
-    const onScroll = () => header?.classList.toggle("is-solid", window.scrollY > solidAt);
+    const onScroll = () => {
+      header?.classList.toggle("is-solid", window.scrollY > solidAt);
+      syncChromeMetrics();
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", syncChromeMetrics, { passive: true });
+    window.addEventListener("load", syncChromeMetrics);
   }
 
   function allergenChips(name, group) {
@@ -560,7 +578,7 @@
   function itemHTML(item, group) {
     const name = item[lang] || item.es;
     const alt = lang === "es" ? item.en : item.es;
-    const note = item.note || "";
+    const note = typeof item.note === "string" ? item.note : (item.note?.[lang] || item.note?.es || "");
     return `
       <article class="menu-item">
         <header>
@@ -572,6 +590,59 @@
         ${allergenChips(item.es, group)}
       </article>
     `;
+  }
+
+  function syncChromeMetrics() {
+    const header = document.querySelector("[data-header]");
+    const tools = document.querySelector(".menu-tools");
+    const headerH = header ? Math.round(header.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty("--header-h", `${headerH}px`);
+    if (tools) {
+      document.documentElement.style.setProperty("--tabs-h", `${Math.round(tools.getBoundingClientRect().height)}px`);
+    }
+  }
+
+  function labelTabArrows() {
+    const copy = t().carta;
+    const prev = document.querySelector("[data-tabs-prev]");
+    const next = document.querySelector("[data-tabs-next]");
+    if (prev) prev.setAttribute("aria-label", copy.tabsPrev);
+    if (next) next.setAttribute("aria-label", copy.tabsNext);
+  }
+
+  function updateTabsOverflow() {
+    const wrap = document.querySelector("[data-tabs-scroller]");
+    const scroller = document.querySelector("[data-tabs]");
+    if (!wrap || !scroller) return;
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    const start = scroller.scrollLeft > 6;
+    const end = scroller.scrollLeft < max - 6;
+    wrap.toggleAttribute("data-overflow-start", start);
+    wrap.toggleAttribute("data-overflow-end", end);
+    wrap.toggleAttribute("data-overflow", max > 6);
+  }
+
+  function revealActiveTab() {
+    const active = document.querySelector("[data-tabs] .is-active");
+    active?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+  }
+
+  function bindTabsScroller() {
+    const wrap = document.querySelector("[data-tabs-scroller]");
+    const scroller = document.querySelector("[data-tabs]");
+    if (!wrap || !scroller || wrap.dataset.bound === "1") return;
+    wrap.dataset.bound = "1";
+
+    const scrollByDir = (dir) => {
+      scroller.scrollBy({ left: dir * Math.max(scroller.clientWidth * 0.68, 180), behavior: "smooth" });
+    };
+
+    wrap.querySelector("[data-tabs-prev]")?.addEventListener("click", () => scrollByDir(-1));
+    wrap.querySelector("[data-tabs-next]")?.addEventListener("click", () => scrollByDir(1));
+    scroller.addEventListener("scroll", updateTabsOverflow, { passive: true });
+    window.addEventListener("resize", updateTabsOverflow, { passive: true });
+    labelTabArrows();
+    updateTabsOverflow();
   }
 
   function renderFullMenu() {
@@ -590,15 +661,22 @@
           .join("");
       }
       if (tabs) {
+        const x = tabs.scrollLeft;
         tabs.innerHTML = `<button type="button" data-cat="all" class="${menuFilter === "all" ? "is-active" : ""}">${t().carta.all}</button>` +
           cats.map((cat) => `<button type="button" data-cat="${cat.id}" class="${menuFilter === cat.id ? "is-active" : ""}">${cat[lang]}</button>`).join("");
+        tabs.scrollLeft = x;
+        requestAnimationFrame(() => {
+          revealActiveTab();
+          updateTabsOverflow();
+          syncChromeMetrics();
+        });
       }
       root.innerHTML = cats
         .filter((cat) => menuFilter === "all" || cat.id === menuFilter)
         .map((cat) => {
           const groups = cat.groups
             ? cat.groups.map((group) => `
-                <h3>${group[lang]}</h3>
+                <h3 class="menu-group-title" data-group="${group.es}">${group[lang]}</h3>
                 ${group.items.map((item) => itemHTML(item, group.es)).join("")}
               `).join("")
             : cat.items.map((item) => itemHTML(item)).join("");
@@ -608,6 +686,7 @@
     };
 
     paintMenu();
+    bindTabsScroller();
 
     const scrollToMenuHash = () => {
       const id = location.hash.replace("#", "");
@@ -675,7 +754,7 @@
       ".split-copy",
       ".booking-box",
       ".map-wrap",
-      ".menu-page .container > *",
+      ".menu-page .container > :not(.menu-tools)",
       ".gallery-grid",
       ".page-hero-content"
     ].join(","));
