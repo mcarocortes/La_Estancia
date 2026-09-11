@@ -381,6 +381,10 @@ button { cursor: pointer; background: none; border: 0; }
   filter: brightness(0.42) saturate(0.92);
 }
 
+body[data-page="contacto"] .page-hero img.hero-bg {
+  filter: grayscale(1) brightness(0.42);
+}
+
 .hero-slides .hero-bg {
   opacity: 0;
   transform: scale(1);
@@ -1855,6 +1859,13 @@ body.is-lite-open { overflow: hidden; }
 .visit-grid:has(.reservation2.is-active),
 .visit-grid:has(.reservation2:focus-visible) {
   grid-template-columns: 0.78fr 1.22fr;
+}
+
+.visit-grid.is-reserve-only,
+.visit-grid.is-reserve-only:has(.reservation2:hover),
+.visit-grid.is-reserve-only:has(.reservation2.is-active),
+.visit-grid.is-reserve-only:has(.reservation2:focus-visible) {
+  grid-template-columns: 1fr;
 }
 
 .visit-col {

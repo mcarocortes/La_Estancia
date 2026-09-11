@@ -143,9 +143,9 @@
       contacto: {
         title: "Contacto · Asador La Estancia",
         h1: "Ubicación",
-        lead: "Virgen del Socorro 79, Alicante. A un paso de la playa.",
+        lead: "Virgen del Socorro 79, Alicante.",
         visit: "Visítanos",
-        h2: "Cómo llegar.",
+        h2: "Cómo llegar",
         phone: "Teléfono",
         d1: "Lu–Mi y Ju",
         dClosed: "Ma",
@@ -288,7 +288,7 @@
       contacto: {
         title: "Contact · Asador La Estancia",
         h1: "Location",
-        lead: "Virgen del Socorro 79, Alicante. A step from the beach.",
+        lead: "Virgen del Socorro 79, Alicante.",
         visit: "Visit us",
         h2: "How to find us.",
         phone: "Phone",
@@ -370,17 +370,18 @@
     }
 
     if (footer) {
+      const hideVisit = active === "contacto";
       footer.innerHTML = `
         <section class="visit-band">
-          <div class="visit-grid">
-            <div class="visit-col visit1" tabindex="0">
+          <div class="visit-grid${hideVisit ? " is-reserve-only" : ""}">
+            ${hideVisit ? "" : `<div class="visit-col visit1" tabindex="0">
               <p class="section-kicker">${copy.footer.find}</p>
               <h2>${copy.footer.visit}</h2>
               <p class="visit-text">${copy.footer.address}</p>
               <h3>${copy.footer.hours}</h3>
               <p class="visit-text">${copy.footer.hoursText}</p>
               <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">${copy.footer.directions}</a>
-            </div>
+            </div>`}
             <div class="visit-col reservation2" tabindex="0">
               <p class="section-kicker">${copy.footer.bookK}</p>
               <h2>${copy.footer.reserve}</h2>
