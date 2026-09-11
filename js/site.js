@@ -6,8 +6,18 @@
     fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z"/></svg>',
     ta: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.006 4.295c-3.2 0-6.142 1.3-8.268 3.408L0 11.44l3.738 3.738 2.32-2.32A7.246 7.246 0 0112 9.668a7.246 7.246 0 015.942 3.19l2.32 2.32L24 11.44l-3.738-3.737c-2.126-2.108-5.063-3.408-8.256-3.408zM12 8.16a4.877 4.877 0 00-4.87 4.87A4.877 4.877 0 0012 17.9a4.877 4.877 0 004.87-4.87A4.877 4.877 0 0012 8.16zm-7.995.84a2.926 2.926 0 100 5.852 2.926 2.926 0 000-5.852zm15.99 0a2.926 2.926 0 100 5.852 2.926 2.926 0 000-5.852zM12 10.148a2.926 2.926 0 110 5.852 2.926 2.926 0 010-5.852z"/></svg>',
     gplus: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 11v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42S5.61 7.58 8 7.58c1.36 0 2.27.58 2.79 1.08l1.9-1.83C11.47 5.69 9.89 5 8 5 4.13 5 1 8.13 1 12s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H8zm15 0h-2V9h-2v2h-2v2h2v2h2v-2h2v-2z"/></svg>',
-    yt: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
+    yt: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+    up: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>'
   };
+
+  const CONTACT = {
+    phone: "603 31 96 93",
+    phoneHref: "tel:+34603319693",
+    email: "info@asadorlaestancia.com",
+    whatsapp: "https://api.whatsapp.com/send?phone=34633034175",
+    address: "C. de la Virgen del Socorro, 79, 03002 Alicante"
+  };
+  const MAPS_HREF = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONTACT.address);
 
   const I18N = {
     es: {
@@ -21,6 +31,7 @@
       write: "Escribir",
       maps: "Abrir en Maps",
       howTo: "Cómo llegar",
+      toTop: "Volver arriba",
       nav: { inicio: "Inicio", carta: "Carta", galeria: "Galería", contacto: "Ubicación", reservas: "Reservar" },
       footer: {
         blurb: "Parrilla argentina en Alicante. Carnes a la brasa, mariscos y una carta de vinos para quedarse.",
@@ -34,7 +45,7 @@
         proto: "Prototipo de rediseño · WordPress en el siguiente paso",
         find: "Encuentra el restaurante",
         visit: "Visítanos",
-        address: "Virgen del Socorro 79, Alicante, España",
+        address: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         directions: "Cómo llegar",
         bookK: "Reserva mesa",
         reserve: "Reservar",
@@ -42,12 +53,15 @@
         booking: "Reserva",
         email: "Email",
         callUs: "Llámanos",
-        online: "Reserva online"
+        online: "Reserva online",
+        menuTitle: "Carta",
+        menuP: "¿Ya tienes mesa?<br>Mira nuestras carnes, mariscos, vinos de la casa y más",
+        menuBtn: "Ver carta"
       },
       home: {
         title: "Asador La Estancia · Parrilla argentina en Alicante",
         h1: "Bienvenidos a",
-        note: "Parrilla argentina en Alicante · Virgen del Socorro 79",
+        note: "Parrilla argentina en Alicante · C. de la Virgen del Socorro, 79",
         aboutK: "Nuestro patrimonio",
         galleryK: "Los platos",
         galleryMore: "Ver galería",
@@ -65,7 +79,7 @@
         meats: "Carnes",
         visualAlt: "Plato de la casa a la parrilla",
         cta: "Un rincón exclusivo: descubre una experiencia gastronómica única.",
-        beach: "Virgen del Socorro 79, Alicante. España",
+        beach: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         awardsK: "Nuestra excelencia reconocida",
         awards: "Premios",
         eventsK: "Momentos Compartidos",
@@ -127,9 +141,7 @@
       reservas: {
         title: "Reservar · Asador La Estancia",
         h1: "Reservar mesa",
-        lead: "Misma lógica que el Booking Calendar actual. En WordPress, el plugin entra en esta caja.",
-        hours: "Horario",
-        h2: "Tu mesa, a la hora de la brasa.",
+        h2: "Horario",
         notice: "La reserva se anula automáticamente al existir un retraso de 15 minutos respecto a la hora programada.",
         d1: "Lunes, miércoles y jueves",
         dClosed: "Martes",
@@ -143,7 +155,7 @@
       contacto: {
         title: "Contacto · Asador La Estancia",
         h1: "Ubicación",
-        lead: "Virgen del Socorro 79, Alicante.",
+        lead: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         visit: "Visítanos",
         h2: "Cómo llegar",
         phone: "Teléfono",
@@ -166,6 +178,7 @@
       write: "Message",
       maps: "Open in Maps",
       howTo: "Find us",
+      toTop: "Back to top",
       nav: { inicio: "Home", carta: "Menu", galeria: "Gallery", contacto: "Location", reservas: "Book a table" },
       footer: {
         blurb: "Argentinian grill in Alicante. Fire-cooked meats, seafood and a wine list worth staying for.",
@@ -179,7 +192,7 @@
         proto: "Redesign prototype · WordPress comes next",
         find: "Find the restaurant",
         visit: "Visit us",
-        address: "Virgen del Socorro 79, Alicante, Spain",
+        address: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         directions: "Get directions",
         bookK: "Book a table",
         reserve: "Reservation",
@@ -187,12 +200,15 @@
         booking: "Booking",
         email: "Email",
         callUs: "Call us",
-        online: "Online reservation"
+        online: "Online reservation",
+        menuTitle: "The menu",
+        menuP: "Already have a table?<br>See our meats, seafood, house wines and more",
+        menuBtn: "View menu"
       },
       home: {
         title: "Asador La Estancia · Argentinian grill in Alicante",
         h1: "Welcome to",
-        note: "Argentinian grill in Alicante · Virgen del Socorro 79",
+        note: "Argentinian grill in Alicante · C. de la Virgen del Socorro, 79",
         aboutK: "The house",
         galleryK: "The dishes",
         galleryMore: "View gallery",
@@ -210,7 +226,7 @@
         meats: "Meats",
         visualAlt: "House grill dish",
         cta: "One house. The grill, the wine and the table, in the centre of Alicante.",
-        beach: "Virgen del Socorro 79, a step from the beach.",
+        beach: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         awardsK: "Awards",
         awards: "Recognition",
         eventsK: "Shared moments",
@@ -272,9 +288,7 @@
       reservas: {
         title: "Book · Asador La Estancia",
         h1: "Book a table",
-        lead: "Same logic as the current Booking Calendar. In WordPress, the plugin sits in this box.",
-        hours: "Hours",
-        h2: "Your table, at grill time.",
+        h2: "Hours",
         notice: "Reservations are cancelled automatically after a 15-minute delay.",
         d1: "Monday, Wednesday and Thursday",
         dClosed: "Tuesday",
@@ -288,7 +302,7 @@
       contacto: {
         title: "Contact · Asador La Estancia",
         h1: "Location",
-        lead: "Virgen del Socorro 79, Alicante.",
+        lead: "C. de la Virgen del Socorro, 79, 03002 Alicante",
         visit: "Visit us",
         h2: "How to find us.",
         phone: "Phone",
@@ -370,26 +384,36 @@
     }
 
     if (footer) {
-      const hideVisit = active === "contacto";
-      footer.innerHTML = `
-        <section class="visit-band">
-          <div class="visit-grid${hideVisit ? " is-reserve-only" : ""}">
-            ${hideVisit ? "" : `<div class="visit-col visit1" tabindex="0">
+      const visitCol = `
+            <div class="visit-col visit1" tabindex="0">
               <p class="section-kicker">${copy.footer.find}</p>
               <h2>${copy.footer.visit}</h2>
               <p class="visit-text">${copy.footer.address}</p>
               <h3>${copy.footer.hours}</h3>
               <p class="visit-text">${copy.footer.hoursText}</p>
-              <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Virgen+del+Socorro+79+Alicante" target="_blank" rel="noopener">${copy.footer.directions}</a>
-            </div>`}
+              <a class="btn-ghost" href="${MAPS_HREF}" target="_blank" rel="noopener">${copy.footer.directions}</a>
+            </div>`;
+      const reserveCol = `
             <div class="visit-col reservation2" tabindex="0">
               <p class="section-kicker">${copy.footer.bookK}</p>
               <h2>${copy.footer.reserve}</h2>
               <p class="visit-text">${copy.footer.reserveP}</p>
               <h3>${copy.footer.booking}</h3>
-              <p class="visit-text">${copy.footer.email}: <a href="mailto:reservas.laestancia79@gmail.com">laestancia79@gmail.com</a><br>${copy.footer.callUs}: <a href="tel:+34966350321">+34 966 35 03 21</a></p>
+              <p class="visit-text">${copy.footer.email}: <a href="mailto:${CONTACT.email}">${CONTACT.email}</a><br>${copy.footer.callUs}: <a href="${CONTACT.phoneHref}">${CONTACT.phone}</a></p>
               <a class="btn-ghost" href="reservas.html">${copy.footer.online}</a>
-            </div>
+            </div>`;
+      const menuCol = `
+            <div class="visit-col menu-col" tabindex="0">
+              <h2>${copy.footer.menuTitle}</h2>
+              <p class="visit-text">${copy.footer.menuP}</p>
+              <a class="btn-ghost" href="carta.html">${copy.footer.menuBtn}</a>
+            </div>`;
+      const single = active === "contacto" || active === "reservas";
+      const cols = active === "contacto" ? reserveCol : active === "reservas" ? menuCol : visitCol + reserveCol;
+      footer.innerHTML = `
+        <section class="visit-band">
+          <div class="visit-grid${single ? " is-reserve-only" : ""}">
+            ${cols}
           </div>
         </section>
         <div class="footer-bar">
@@ -397,7 +421,7 @@
             <div class="footer-socials">
               <a href="https://www.facebook.com/AsadorLaEstancia79" target="_blank" rel="noopener" aria-label="Facebook">${ICONS.fb}</a>
               <a href="https://www.instagram.com/asadorlaestancia/" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.ig}</a>
-              <a href="https://wa.me/34966350321" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.wa}</a>
+              <a href="${CONTACT.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.wa}</a>
               <a href="https://www.tripadvisor.es/Restaurant_Review-g1064230-d4551310-Reviews-Asador_La_Estancia-Alicante_Costa_Blanca_Province_of_Alicante_Valencian_Communit.html" target="_blank" rel="noopener" aria-label="TripAdvisor">${ICONS.ta}</a>
               <a href="https://www.google.com/search?q=asador+la+estancia" target="_blank" rel="noopener" aria-label="Google">${ICONS.gplus}</a>
               <a href="https://www.youtube.com/watch?v=pGrHOlknn98" target="_blank" rel="noopener" aria-label="YouTube">${ICONS.yt}</a>
@@ -420,16 +444,17 @@
     `;
     if (!drawer.parentNode) document.body.appendChild(drawer);
 
-    if (!document.querySelector(".wa")) {
-      const wa = document.createElement("a");
-      wa.className = "wa";
-      wa.href = "https://wa.me/34633034175";
-      wa.target = "_blank";
-      wa.rel = "noopener";
-      wa.setAttribute("aria-label", "WhatsApp");
-      wa.innerHTML = ICONS.wa;
-      document.body.appendChild(wa);
+    document.querySelector(".wa")?.remove();
+
+    let toTop = document.querySelector(".to-top");
+    if (!toTop) {
+      toTop = document.createElement("button");
+      toTop.type = "button";
+      toTop.className = "to-top";
+      toTop.innerHTML = ICONS.up;
+      document.body.appendChild(toTop);
     }
+    toTop.setAttribute("aria-label", copy.toTop);
 
     syncChromeMetrics();
   }
@@ -526,8 +551,6 @@
     if (page === "reservas") {
       document.title = copy.reservas.title;
       setText("[data-copy=h1]", copy.reservas.h1);
-      setText("[data-copy=lead]", copy.reservas.lead);
-      setText("[data-copy=hours]", copy.reservas.hours);
       setText("[data-copy=h2]", copy.reservas.h2);
       setText("[data-copy=notice]", copy.reservas.notice);
       setText("[data-copy=d1]", copy.reservas.d1);
@@ -575,6 +598,11 @@
 
   function bindChrome() {
     document.addEventListener("click", (event) => {
+      const toTopBtn = event.target.closest(".to-top");
+      if (toTopBtn) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       const langBtn = event.target.closest("[data-set-lang]");
       if (langBtn) {
         setLang(langBtn.dataset.setLang);
@@ -602,6 +630,7 @@
     const solidAt = Number(document.body.dataset.solid || 80);
     const onScroll = () => {
       header?.classList.toggle("is-solid", window.scrollY > solidAt);
+      document.querySelector(".to-top")?.classList.toggle("is-visible", window.scrollY > 360);
       syncChromeMetrics();
     };
     onScroll();
