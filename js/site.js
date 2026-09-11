@@ -326,6 +326,8 @@
 
   let lang = localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "es";
   let menuFilter = "all";
+  let menuLock = false;
+  let menuObserver = null;
   let galleryFilter = "all";
   let galleryView = [];
   let galleryLock = false;
@@ -696,8 +698,15 @@
   }
 
   function revealActiveTab() {
-    const active = document.querySelector("[data-tabs] .is-active");
-    active?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+    const scroller = document.querySelector("[data-tabs]");
+    const active = scroller?.querySelector(".is-active");
+    if (!scroller || !active) return;
+    const left = active.getBoundingClientRect().left - scroller.getBoundingClientRect().left + scroller.scrollLeft;
+    const next = left - (scroller.clientWidth - active.offsetWidth) / 2;
+    scroller.scrollTo({
+      left: Math.max(0, Math.min(next, scroller.scrollWidth - scroller.clientWidth)),
+      behavior: "smooth"
+    });
   }
 
   function bindTabsScroller() {
@@ -745,7 +754,6 @@
         });
       }
       root.innerHTML = cats
-        .filter((cat) => menuFilter === "all" || cat.id === menuFilter)
         .map((cat) => {
           const groups = cat.groups
             ? cat.groups.map((group) => `
@@ -756,6 +764,8 @@
           return `<section class="menu-section" id="${cat.id}"><h2>${cat[lang]}</h2><div class="menu-grid">${groups}</div></section>`;
         })
         .join("");
+      root.classList.remove("reveal");
+      observeMenuSections();
     };
 
     paintMenu();
@@ -763,9 +773,8 @@
 
     const scrollToMenuHash = () => {
       const id = location.hash.replace("#", "");
-      const el = id ? document.getElementById(id) : null;
-      if (!el) return;
-      el.scrollIntoView({ behavior: "auto", block: "start" });
+      if (!id) return;
+      scrollToMenuSection(id, false);
     };
 
     if (location.hash) {
@@ -779,10 +788,55 @@
     tabs?.addEventListener("click", (event) => {
       const btn = event.target.closest("[data-cat]");
       if (!btn) return;
-      menuFilter = btn.dataset.cat;
-      paintMenu();
-      if (menuFilter !== "all") document.getElementById(menuFilter)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToMenuSection(btn.dataset.cat);
     });
+  }
+
+  function setMenuTab(id) {
+    menuFilter = id;
+    document.querySelectorAll("[data-cat]").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.cat === id);
+    });
+  }
+
+  function scrollToMenuSection(id, smooth = true) {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = smooth && !reduce ? "smooth" : "auto";
+    const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 0;
+    menuLock = true;
+    setMenuTab(id);
+    if (id === "all") {
+      const page = document.querySelector(".menu-page");
+      const top = page
+        ? Math.max(0, page.getBoundingClientRect().top + window.scrollY - headerH)
+        : 0;
+      window.scrollTo({ top, behavior });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior, block: "start" });
+    }
+    revealActiveTab();
+    window.clearTimeout(scrollToMenuSection.timer);
+    scrollToMenuSection.timer = window.setTimeout(() => {
+      menuLock = false;
+    }, 900);
+  }
+
+  function observeMenuSections() {
+    menuObserver?.disconnect();
+    const blocks = document.querySelectorAll(".menu-section");
+    if (!blocks.length) return;
+    menuObserver = new IntersectionObserver((entries) => {
+      if (menuLock) return;
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      const id = visible?.target?.id;
+      if (id && id !== menuFilter) {
+        setMenuTab(id);
+        revealActiveTab();
+      }
+    }, { rootMargin: "-28% 0px -55% 0px", threshold: 0.01 });
+    blocks.forEach((block) => menuObserver.observe(block));
   }
 
   function galleryCardHTML(item, index) {
@@ -989,12 +1043,15 @@
       ".split-copy",
       ".booking-box",
       ".map-wrap",
-      ".menu-page .container > :not(.menu-tools)",
+      ".menu-page .legend",
       ".gallery-block",
       ".page-hero-content"
     ].join(","));
 
-    blocks.forEach((el) => el.classList.add("reveal"));
+    blocks.forEach((el) => {
+      if (el.matches("[data-menu]")) return;
+      el.classList.add("reveal");
+    });
 
     document.querySelectorAll(".intro-photo-tall, .intro-copy > *, .intro-stack .intro-photo").forEach((el, i) => {
       el.style.transitionDelay = `${i * 0.12}s`;
@@ -1012,7 +1069,10 @@
       });
     }, { threshold: 0.14, rootMargin: "0px 0px -48px 0px" });
 
-    blocks.forEach((el) => io.observe(el));
+    blocks.forEach((el) => {
+      if (el.matches("[data-menu]")) return;
+      io.observe(el);
+    });
   }
 
   function startLookbook() {
