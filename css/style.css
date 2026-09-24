@@ -2159,7 +2159,7 @@ body.is-lite-open { overflow: hidden; }
   }
 
   .site-footer{
-    height: 90vh;
+    height: auto;
   }
   .menu-grid,
   .split { grid-template-columns: 1fr; }
@@ -2176,6 +2176,8 @@ body.is-lite-open { overflow: hidden; }
     height: 100%;
     border-left: 0;
     padding-top: 50px;
+    padding-bottom: 50px;
+  
   }
 
   .mosaic {
