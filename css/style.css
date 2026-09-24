@@ -2172,12 +2172,14 @@ body.is-lite-open { overflow: hidden; }
   .visit-grid:has(.reservation2:focus-visible) {
     grid-template-columns: 1fr;
   }
+
+
   .visit-col{
     height: 100%;
     border-left: 0;
     padding-top: 50px;
     padding-bottom: 50px;
-  
+    border: solid 1px var(--gold);
   }
 
   .mosaic {
